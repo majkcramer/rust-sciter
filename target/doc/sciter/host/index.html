@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `host` mod in crate `sciter`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, host">
+
+    <title>sciter::host - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>sciter</a></p><script>window.sidebarCurrent = {name: 'host', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>sciter</a>::<wbr><a class='mod' href=''>host</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-1936' class='srclink' href='../../src/sciter/host.rs.html#1-339' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Sciter host application helpers.</p>
+</div><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Host.html'
+                                  title='sciter::host::Host'>Host</a></td>
+                           <td class='docblock short'>
+                                <p>Sciter host runtime support.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.SCN_ATTACH_BEHAVIOR.html'
+                                  title='sciter::host::SCN_ATTACH_BEHAVIOR'>SCN_ATTACH_BEHAVIOR</a></td>
+                           <td class='docblock short'>
+                                <p>This notification is sent on parsing the document and while processing elements
+having non empty <code>style.behavior</code> attribute value.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.SCN_DATA_LOADED.html'
+                                  title='sciter::host::SCN_DATA_LOADED'>SCN_DATA_LOADED</a></td>
+                           <td class='docblock short'>
+                                <p>This notification indicates that external data (for example image) download process completed.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.SCN_LOAD_DATA.html'
+                                  title='sciter::host::SCN_LOAD_DATA'>SCN_LOAD_DATA</a></td>
+                           <td class='docblock short'>
+                                <p>Notifies that Sciter is about to download a referred resource.</p>
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.GFX_LAYER.html'
+                                  title='sciter::host::GFX_LAYER'>GFX_LAYER</a></td>
+                           <td class='docblock short'>
+                                <p>Explicitly set sciter graphics layer (Windows only).</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.LOAD_RESULT.html'
+                                  title='sciter::host::LOAD_RESULT'>LOAD_RESULT</a></td>
+                           <td class='docblock short'>
+                                <p><code>HostHandler::on_data_load()</code> result code.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.OUTPUT_SEVERITY.html'
+                                  title='sciter::host::OUTPUT_SEVERITY'>OUTPUT_SEVERITY</a></td>
+                           <td class='docblock short'>
+                                <p>Debug output severity.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.OUTPUT_SUBSYTEMS.html'
+                                  title='sciter::host::OUTPUT_SUBSYTEMS'>OUTPUT_SUBSYTEMS</a></td>
+                           <td class='docblock short'>
+                                <p>Debug output categories.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.SCITER_RT_OPTIONS.html'
+                                  title='sciter::host::SCITER_RT_OPTIONS'>SCITER_RT_OPTIONS</a></td>
+                           <td class='docblock short'>
+                                <p>Various sciter engine options.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.SCRIPT_RUNTIME_FEATURES.html'
+                                  title='sciter::host::SCRIPT_RUNTIME_FEATURES'>SCRIPT_RUNTIME_FEATURES</a></td>
+                           <td class='docblock short'>
+                                <p>Script runtime options.</p>
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.HostHandler.html'
+                                  title='sciter::host::HostHandler'>HostHandler</a></td>
+                           <td class='docblock short'>
+                                <p>Sciter notification handler for <code>Window.sciter_handler()</code>.</p>
+                           </td>
+                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.Result.html'
+                                  title='sciter::host::Result'>Result</a></td>
+                           <td class='docblock short'>
+                                <p>A specialized <code>Result</code> type for sciter host operations.</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "sciter";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["SCITER_CREATE_WINDOW_FLAGS","Window flags"]],"struct":[["Window","Sciter window."]],"type":[["Flags","`SCITER_CREATE_WINDOW_FLAGS` alias."]]});

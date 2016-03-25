@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `HostHandler` trait in crate `sciter`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, HostHandler">
+
+    <title>sciter::host::HostHandler - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>sciter</a>::<wbr><a href='index.html'>host</a></p><script>window.sidebarCurrent = {name: 'HostHandler', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>sciter</a>::<wbr><a href='index.html'>host</a>::<wbr><a class='trait' href=''>HostHandler</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-1947' class='srclink' href='../../src/sciter/host.rs.html#58-106' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait HostHandler {
+    fn <a href='#method.on_data_load' class='fnname'>on_data_load</a>(&amp;mut self, pnm: &amp;mut <a class='struct' href='../../sciter/host/struct.SCN_LOAD_DATA.html' title='sciter::host::SCN_LOAD_DATA'>SCN_LOAD_DATA</a>) -&gt; <a class='enum' href='../../sciter/host/enum.LOAD_RESULT.html' title='sciter::host::LOAD_RESULT'>LOAD_RESULT</a> { ... }
+    fn <a href='#method.on_data_loaded' class='fnname'>on_data_loaded</a>(&amp;mut self, pnm: &amp;<a class='struct' href='../../sciter/host/struct.SCN_DATA_LOADED.html' title='sciter::host::SCN_DATA_LOADED'>SCN_DATA_LOADED</a>) { ... }
+    fn <a href='#method.on_attach_behavior' class='fnname'>on_attach_behavior</a>(&amp;mut self, pnm: &amp;mut <a class='struct' href='../../sciter/host/struct.SCN_ATTACH_BEHAVIOR.html' title='sciter::host::SCN_ATTACH_BEHAVIOR'>SCN_ATTACH_BEHAVIOR</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a> { ... }
+    fn <a href='#method.on_engine_destroyed' class='fnname'>on_engine_destroyed</a>(&amp;mut self) { ... }
+    fn <a href='#method.on_graphics_critical_failure' class='fnname'>on_graphics_critical_failure</a>(&amp;mut self) { ... }
+    fn <a href='#method.on_debug_output' class='fnname'>on_debug_output</a>(&amp;mut self, subsystem: <a class='enum' href='../../sciter/host/enum.OUTPUT_SUBSYTEMS.html' title='sciter::host::OUTPUT_SUBSYTEMS'>OUTPUT_SUBSYTEMS</a>, severity: <a class='enum' href='../../sciter/host/enum.OUTPUT_SEVERITY.html' title='sciter::host::OUTPUT_SEVERITY'>OUTPUT_SEVERITY</a>, message: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) { ... }
+    fn <a href='#method.data_ready' class='fnname'>data_ready</a>(&amp;mut self, hwnd: HWINDOW, uri: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, data: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, request_id: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;HREQUEST&gt;) { ... }
+}</pre><div class='docblock'><p>Sciter notification handler for <code>Window.sciter_handler()</code>.</p>
+
+<h2 id='resource-handling-and-custom-resource-loader' class='section-header'><a href='#resource-handling-and-custom-resource-loader'>Resource handling and custom resource loader</a></h2>
+<p>HTML loaded into Sciter may contain external resources: CSS (Cascading Style Sheets), images, fonts, cursors and scripts.
+To get any of such resources Sciter will first send <code>on_data_load(SCN_LOAD_DATA)</code> notification to your application using
+callback handler registered with <code>sciter::Window.sciter_handler()</code> function.</p>
+
+<p>Your application can provide your own data for such resources (for example from resource section, DB or other storage of your choice)
+or delegate resource loading to built-in HTTP client and file loader or discard loading at all.</p>
+
+<p>Note: This handler should be registere before any <code>load_html</code> call in order to send notifications while loading.</p>
+</div>
+            <h2 id='provided-methods'>Provided Methods</h2>
+            <div class='methods'>
+        <h3 id='method.on_data_load' class='method stab '><code>fn <a href='#method.on_data_load' class='fnname'>on_data_load</a>(&amp;mut self, pnm: &amp;mut <a class='struct' href='../../sciter/host/struct.SCN_LOAD_DATA.html' title='sciter::host::SCN_LOAD_DATA'>SCN_LOAD_DATA</a>) -&gt; <a class='enum' href='../../sciter/host/enum.LOAD_RESULT.html' title='sciter::host::LOAD_RESULT'>LOAD_RESULT</a></code></h3><div class='docblock'><p>Notifies that Sciter is about to download a referred resource.</p>
+
+<p>You can load or overload data immediately by calling <code>self.data_ready()</code> with parameters provided by <code>SCN_LOAD_DATA</code>,
+or save them (including <code>request_id</code>) for later usage and answer here with <code>LOAD_RESULT::LOAD_DELAYED</code> code.</p>
+
+<p>Also you can discard request (data will not be loaded at document) or take care about this request completely (via request API).</p>
+</div><h3 id='method.on_data_loaded' class='method stab '><code>fn <a href='#method.on_data_loaded' class='fnname'>on_data_loaded</a>(&amp;mut self, pnm: &amp;<a class='struct' href='../../sciter/host/struct.SCN_DATA_LOADED.html' title='sciter::host::SCN_DATA_LOADED'>SCN_DATA_LOADED</a>)</code></h3><div class='docblock'><p>This notification indicates that external data (for example image) download process completed.</p>
+</div><h3 id='method.on_attach_behavior' class='method stab '><code>fn <a href='#method.on_attach_behavior' class='fnname'>on_attach_behavior</a>(&amp;mut self, pnm: &amp;mut <a class='struct' href='../../sciter/host/struct.SCN_ATTACH_BEHAVIOR.html' title='sciter::host::SCN_ATTACH_BEHAVIOR'>SCN_ATTACH_BEHAVIOR</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h3><div class='docblock'><p>This notification is sent on parsing the document and while processing elements
+having non empty <code>style.behavior</code> attribute value.</p>
+</div><h3 id='method.on_engine_destroyed' class='method stab '><code>fn <a href='#method.on_engine_destroyed' class='fnname'>on_engine_destroyed</a>(&amp;mut self)</code></h3><div class='docblock'><p>This notification is sent when instance of the engine is destroyed.</p>
+</div><h3 id='method.on_graphics_critical_failure' class='method stab '><code>fn <a href='#method.on_graphics_critical_failure' class='fnname'>on_graphics_critical_failure</a>(&amp;mut self)</code></h3><div class='docblock'><p>This notification is sent when the engine encounters critical rendering error: e.g. DirectX gfx driver error.
+Most probably bad gfx drivers.</p>
+</div><h3 id='method.on_debug_output' class='method stab '><code>fn <a href='#method.on_debug_output' class='fnname'>on_debug_output</a>(&amp;mut self, subsystem: <a class='enum' href='../../sciter/host/enum.OUTPUT_SUBSYTEMS.html' title='sciter::host::OUTPUT_SUBSYTEMS'>OUTPUT_SUBSYTEMS</a>, severity: <a class='enum' href='../../sciter/host/enum.OUTPUT_SEVERITY.html' title='sciter::host::OUTPUT_SEVERITY'>OUTPUT_SEVERITY</a>, message: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>)</code></h3><div class='docblock'><p>This output function will be used for reprting problems found while loading html and css documents.</p>
+</div><h3 id='method.data_ready' class='method stab '><code>fn <a href='#method.data_ready' class='fnname'>data_ready</a>(&amp;mut self, hwnd: HWINDOW, uri: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, data: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, request_id: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;HREQUEST&gt;)</code></h3><div class='docblock'><p>This function is used as response to <code>on_data_load</code> request.</p>
+
+<p>Parameters here must be taken from <code>SCN_LOAD_DATA</code> structure. You can store them for later usage,
+but you must answer as <code>LOAD_RESULT::LOAD_DELAYED</code> code and provide an <code>request_id</code> here.</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    </ul><script type="text/javascript" async
+                         src="../../implementors/sciter/host/trait.HostHandler.js">
+                 </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "sciter";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

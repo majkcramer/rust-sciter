@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `dom` mod in crate `sciter`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, dom">
+
+    <title>sciter::dom - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>sciter</a></p><script>window.sidebarCurrent = {name: 'dom', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>sciter</a>::<wbr><a class='mod' href=''>dom</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-2493' class='srclink' href='../../src/sciter/dom.rs.html#1-1115' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>DOM access methods.</p>
+
+<h2 id='introduction' class='section-header'><a href='#introduction'>Introduction.</a></h2>
+<p>Let’s assume you already integrated Sciter in your application and so you have Sciter window with loaded content.</p>
+
+<p>From Sciter point of view loaded document is a tree of DOM elements (elements of Document Object Model).
+Sciter builds this tree while loading/parsing of input HTML.
+As a rule each tag in source HTML gets matching DOM element (there are exceptions, see below).</p>
+
+<p>You can change text, attributes, state flags of DOM elements;
+add new or remove existing DOM elements.
+You also can attach your own DOM event handlers to DOM elements to receive events and notifications.</p>
+
+<p>Therefore your UI in Sciter is a collection of uniform DOM elements that can be styled by CSS and manipulated by native or script code.</p>
+
+<h2 id='basic-operations' class='section-header'><a href='#basic-operations'>Basic operations</a></h2>
+<p>To access the DOM tree we need to get reference of its root element
+(root element is an element representing <code>&lt;html&gt;</code> tag in HTML source).</p>
+
+<pre><code class="language-no-run">let root = Element::from_window(hwnd);
+assert_eq(root.get_tag(), &quot;html&quot;);
+</code></pre>
+
+<p>By having root element reference we are able to access any other element in the tree
+using various access and search functions like SciterGetNthChild, SciterSelectElements, …
+All of them are wrapped into methods of <code>dom::Element</code>.
+Here is how you would get reference to first <code>&lt;div&gt;</code> element with class &quot;sidebar&quot; using CSS selectors:</p>
+
+<pre><code class="language-no-run">let sidebar = root.find_first(&quot;div.sidebar&quot;).unwrap();
+</code></pre>
+
+<p>The same in script:</p>
+
+<pre><code class="language-tiscript">var sidebar = self.select(&quot;div.sidebar&quot;); // or
+var sidebar = self.$(div.sidebar); // using stringizer select variant
+</code></pre>
+
+<h2 id='dom-element-operations' class='section-header'><a href='#dom-element-operations'>DOM element operations</a></h2>
+<p>You can change <em>text</em> or HTML of DOM element:</p>
+
+<pre><code class="language-no-run">if let Some(el) = root.find_first(&quot;#cancel&quot;) {
+    el.set_text(&quot;Abort!&quot;);
+    el.set_html(br##&quot;&lt;img src=&quot;http://lorempixel.com/32/32/cats/&quot; alt=&quot;some cat&quot;/&gt;&quot;##, None);
+}
+</code></pre>
+
+<p>The same but in script:</p>
+
+<pre><code class="language-tiscript">var el = ...;
+el.text = &quot;Hello world&quot;; // text
+el.html = &quot;Hello &lt;b&gt;wrold&lt;/b&gt;!&quot;; // inner html
+</code></pre>
+
+<p>You can get or set DOM <em>attributes</em> of any DOM element:</p>
+
+<pre><code class="language-no-run">let val = el.get_attribute(&quot;class&quot;).unwrap();
+el.set_attribute(&quot;class&quot;, &quot;new-class&quot;);
+</code></pre>
+
+<p>To <em>remove</em> existing DOM element (detach it from the DOM) you will do this:</p>
+
+<pre><code class="language-no-run">el.detach();
+</code></pre>
+
+<p>and when code will live scope where the <code>el</code> variable is defined the DOM element will be destroyed.</p>
+
+<p>Creation and population of DOM elements looks like this:</p>
+
+<pre><code class="language-no-run">let p = Element::with_text(&quot;p&quot;, &quot;Hello&quot;); // create &lt;p&gt; element
+el.append(p); // append it to existing element, or insert() ...
+</code></pre>
+
+<p>And in script:</p>
+
+<pre><code class="language-tiscript">var p = new Element(&quot;p&quot;, &quot;Hello&quot;);
+el.append(p);
+</code></pre>
+
+<p>To change runtime state flags of DOM element we do something like this:</p>
+
+<pre><code class="language-no-run">el.set_state(STATE_VISITED);
+</code></pre>
+
+<p>And in script:</p>
+
+<pre><code class="language-tiscript">el.state.visited = true;
+</code></pre>
+
+<p>(after such call the element will match <code>:visited</code> CSS selector)</p>
+
+<h2 id='getting-and-setting-values-of-dom-elements' class='section-header'><a href='#getting-and-setting-values-of-dom-elements'>Getting and setting values of DOM elements.</a></h2>
+<p>By default value of DOM element is its text but some DOM elements may have so called behaviors
+attached to them (see below).
+<code>&lt;input&gt;</code>’s elements for example are plain DOM elements but each input type has its own behavior assigned to the element.
+The behavior, among other things, is responsible for providing and setting value of the element.
+For example value of <code>input type=checkbox&gt;</code> is boolean – <em>true</em> or <em>false</em>,
+and value of <code>&lt;form&gt;</code> element is a collection (name/value map) of all inputs on the form.</p>
+
+<p>In native code values are represented by <code>sciter::Value</code> objects.
+<code>sciter::Value</code> is a structure that can hold different types of values: numbers, strings, arrays, objects, etc
+(see <a href="http://sciter.com/docs/content/script/language/Types.htm">documentation</a>).</p>
+
+<p>Here is how to set numeric value of DOM element in native code:</p>
+
+<pre><code class="language-no-run">if let Some(num) = root.find_first(&quot;input[type=number]&quot;) {
+    num.set_value( sciter::Value::from(12) );
+}
+</code></pre>
+
+<p>In script the same will look like:</p>
+
+<pre><code class="language-tiscript">if (var num = self.select(&quot;input[type=number]&quot;)) {
+    num.value = 12;
+}
+</code></pre>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use dom::event::<a class='trait' href='../../sciter/dom/event/trait.EventHandler.html' title='sciter::dom::event::EventHandler'>EventHandler</a>;</code></td></tr><tr><td><code>pub use dom::event::<a class='enum' href='../../sciter/dom/event/enum.EventReason.html' title='sciter::dom::event::EventReason'>EventReason</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='event/index.html'
+                                  title='sciter::dom::event'>event</a></td>
+                           <td class='docblock short'>
+                                <p>Behaviors support (a.k.a windowless controls).</p>
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.Element.html'
+                                  title='sciter::dom::Element'>Element</a></td>
+                           <td class='docblock short'>
+                                <p>DOM element wrapper. See the module-level documentation also.</p>
+                           </td>
+                       </tr></table><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.SCDOM_RESULT.html'
+                                  title='sciter::dom::SCDOM_RESULT'>SCDOM_RESULT</a></td>
+                           <td class='docblock short'>
+                                <p>Type of the result value for Sciter DOM functions.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.SET_ELEMENT_HTML.html'
+                                  title='sciter::dom::SET_ELEMENT_HTML'>SET_ELEMENT_HTML</a></td>
+                           <td class='docblock short'>
+                                <p><code>dom::Element.set_html()</code> options.</p>
+                           </td>
+                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.HELEMENT.html'
+                                  title='sciter::dom::HELEMENT'>HELEMENT</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.Result.html'
+                                  title='sciter::dom::Result'>Result</a></td>
+                           <td class='docblock short'>
+                                <p>A specialized <code>Result</code> type for DOM operations.</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "sciter";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

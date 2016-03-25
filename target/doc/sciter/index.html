@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `sciter` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, sciter">
+
+    <title>sciter - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'></p><script>window.sidebarCurrent = {name: 'sciter', ty: 'mod', relpath: '../'};</script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>sciter</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-0' class='srclink' href='../src/sciter/lib.rs.html#1-92' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'>
+<h1 id='rust-bindings-library-for-sciter-engine' class='section-header'><a href='#rust-bindings-library-for-sciter-engine'>Rust bindings library for Sciter engine.</a></h1>
+<p>Sciter is an embeddable <a href="http://sciter.com/sciter/crossplatform/">multiplatform</a> HTML/CSS/script engine
+with GPU accelerated rendering designed to render modern desktop application UI.
+It&#39;s a compact, single dll/dylib/so file (4-8 mb), engine without any additional dependencies.</p>
+
+<p>Sciter supports all standard elements defined in HTML5 specification <a href="http://sciter.com/developers/for-web-programmers/">with some additions</a>.
+CSS extended to better support Desktop UI development, e.g. flow and flex units, vertical and horizontal alignment, OS theming.</p>
+
+<p><a href="http://sciter.com/download/">Sciter SDK</a> comes with demo &quot;browser&quot; with builtin DOM inspector, script debugger and documentation browser:</p>
+
+<p><img src="http://sciter.com/images/sciter-tools.png" alt="Sciter tools"></p>
+
+<p>Check <a href="http://sciter.com">http://sciter.com</a> website and its <a href="http://sciter.com/developers/">documentation resources</a> for engine principles, architecture and more.</p>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub use dom::<a class='struct' href='../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>;</code></td></tr><tr><td><code>pub use dom::event::<a class='trait' href='../sciter/dom/event/trait.EventHandler.html' title='sciter::dom::event::EventHandler'>EventHandler</a>;</code></td></tr><tr><td><code>pub use host::{<a class='struct' href='../sciter/host/struct.Host.html' title='sciter::host::Host'>Host</a>, <a class='trait' href='../sciter/host/trait.HostHandler.html' title='sciter::host::HostHandler'>HostHandler</a>};</code></td></tr><tr><td><code>pub use value::{<a class='struct' href='../sciter/value/struct.Value.html' title='sciter::value::Value'>Value</a>, <a class='trait' href='../sciter/value/trait.FromValue.html' title='sciter::value::FromValue'>FromValue</a>};</code></td></tr><tr><td><code>pub use window::<a class='struct' href='../sciter/window/struct.Window.html' title='sciter::window::Window'>Window</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='dom/index.html'
+                                  title='sciter::dom'>dom</a></td>
+                           <td class='docblock short'>
+                                <p>DOM access methods.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='host/index.html'
+                                  title='sciter::host'>host</a></td>
+                           <td class='docblock short'>
+                                <p>Sciter host application helpers.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='utf/index.html'
+                                  title='sciter::utf'>utf</a></td>
+                           <td class='docblock short'>
+                                <p>UTF-8 &lt;&gt; UTF-16 conversion support.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='value/index.html'
+                                  title='sciter::value'>value</a></td>
+                           <td class='docblock short'>
+                                <p>Rust interface to <a href="https://github.com/c-smile/sciter-sdk/blob/master/include/value.h">sciter::value</a>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='window/index.html'
+                                  title='sciter::window'>window</a></td>
+                           <td class='docblock short'>
+                                <p>High level window wrapper.</p>
+                           </td>
+                       </tr></table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.dispatch_script_call!.html'
+                                  title='sciter::dispatch_script_call!'>dispatch_script_call!</a></td>
+                           <td class='docblock short'>
+                                <p>Dispatch script calls to native code. Used in <a href="dom/event/trait.EventHandler.html">dom::EventHandler</a> implementations.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.make_args!.html'
+                                  title='sciter::make_args!'>make_args!</a></td>
+                           <td class='docblock short'>
+                                <p>Make <code>[Value]</code> sequence to call the sciter script function. Used in <code>call_function()</code> and <code>call_method()</code> calls.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.s2u!.html'
+                                  title='sciter::s2u!'>s2u!</a></td>
+                           <td class='docblock short'>
+                                <p>Rust string to UTF-8 conversion. See also <code>utf::u2s</code>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.s2w!.html'
+                                  title='sciter::s2w!'>s2w!</a></td>
+                           <td class='docblock short'>
+                                <p>Rust string to UTF-16 conversion. See also <code>utf::w2s</code>.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.u2s!.html'
+                                  title='sciter::u2s!'>u2s!</a></td>
+                           <td class='docblock short'>
+                                <p>UTF-8 to <code>String</code> conversion.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.w2s!.html'
+                                  title='sciter::w2s!'>w2s!</a></td>
+                           <td class='docblock short'>
+                                <p>UTF-16 to <code>String</code> conversion.</p>
+                           </td>
+                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.HELEMENT.html'
+                                  title='sciter::HELEMENT'>HELEMENT</a></td>
+                           <td class='docblock short'>
+                                
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "sciter";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

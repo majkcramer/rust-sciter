@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Element` struct in crate `sciter`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Element">
+
+    <title>sciter::dom::Element - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>sciter</a>::<wbr><a href='index.html'>dom</a></p><script>window.sidebarCurrent = {name: 'Element', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>sciter</a>::<wbr><a href='index.html'>dom</a>::<wbr><a class='struct' href=''>Element</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-2529' class='srclink' href='../../src/sciter/dom.rs.html#215-217' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct Element {
+    // some fields omitted
+}</pre><div class='docblock'><p>DOM element wrapper. See the module-level documentation also.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a></code></h3><div class='impl-items'><h4 id='method.from' class='method'><code>fn <a href='#method.from' class='fnname'>from</a>(he: <a class='type' href='../../sciter/dom/type.HELEMENT.html' title='sciter::dom::HELEMENT'>HELEMENT</a>) -&gt; <a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a></code></h4>
+<div class='docblock'><p>Construct Element object from HELEMENT handle.</p>
+</div><h4 id='method.create' class='method'><code>fn <a href='#method.create' class='fnname'>create</a>(tag: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Create new element, it is disconnected initially from the DOM.</p>
+</div><h4 id='method.create_at' class='method'><code>fn <a href='#method.create_at' class='fnname'>create_at</a>(tag: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, parent: &amp;mut <a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Create new element as child of <code>parent</code>.</p>
+</div><h4 id='method.with_text' class='method'><code>fn <a href='#method.with_text' class='fnname'>with_text</a>(tag: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, text: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Create new element with specified <code>text</code>, it is disconnected initially from the DOM.</p>
+</div><h4 id='method.with_type' class='method'><code>fn <a href='#method.with_type' class='fnname'>with_type</a>(tag: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, el_type: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Create new element with specified <code>type</code>, which is useful for controls and widgets (initially disconnected).</p>
+</div><h4 id='method.from_window' class='method'><code>fn <a href='#method.from_window' class='fnname'>from_window</a>(hwnd: HWINDOW) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Get root DOM element of the Sciter document.</p>
+</div><h4 id='method.from_focus' class='method'><code>fn <a href='#method.from_focus' class='fnname'>from_focus</a>(hwnd: HWINDOW) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Get focus DOM element of the Sciter document.</p>
+</div><h4 id='method.from_highlighted' class='method'><code>fn <a href='#method.from_highlighted' class='fnname'>from_highlighted</a>(hwnd: HWINDOW) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Get highlighted element.</p>
+</div><h4 id='method.from_point' class='method'><code>fn <a href='#method.from_point' class='fnname'>from_point</a>(hwnd: HWINDOW, pt: POINT) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Find DOM element of the Sciter document by coordinates.</p>
+</div><h4 id='method.from_uid' class='method'><code>fn <a href='#method.from_uid' class='fnname'>from_uid</a>(hwnd: HWINDOW, uid: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Get element handle by its UID.</p>
+</div><h4 id='method.as_ptr' class='method'><code>fn <a href='#method.as_ptr' class='fnname'>as_ptr</a>(&amp;self) -&gt; <a class='type' href='../../sciter/dom/type.HELEMENT.html' title='sciter::dom::HELEMENT'>HELEMENT</a></code></h4>
+<div class='docblock'><p>Access element pointer.</p>
+</div><h4 id='method.get_uid' class='method'><code>fn <a href='#method.get_uid' class='fnname'>get_uid</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a></code></h4>
+<div class='docblock'><p>Get element UID - identifier suitable for storage.</p>
+</div><h4 id='method.get_tag' class='method'><code>fn <a href='#method.get_tag' class='fnname'>get_tag</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a></code></h4>
+<div class='docblock'><p>Return element tag as string (e.g. &#39;div&#39;, &#39;body&#39;).</p>
+</div><h4 id='method.get_text' class='method'><code>fn <a href='#method.get_text' class='fnname'>get_text</a>(&amp;self) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a></code></h4>
+<div class='docblock'><p>Get inner text of the element as string.</p>
+</div><h4 id='method.set_text' class='method'><code>fn <a href='#method.set_text' class='fnname'>set_text</a>(&amp;mut self, text: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Set inner text of the element.</p>
+</div><h4 id='method.get_html' class='method'><code>fn <a href='#method.get_html' class='fnname'>get_html</a>(&amp;self, with_outer_html: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a>&gt;</code></h4>
+<div class='docblock'><p>Get html representation of the element as utf-8 bytes.</p>
+</div><h4 id='method.set_html' class='method'><code>fn <a href='#method.set_html' class='fnname'>set_html</a>(&amp;mut self, html: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u8.html'>u8</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>, how: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='../../sciter/dom/enum.SET_ELEMENT_HTML.html' title='sciter::dom::SET_ELEMENT_HTML'>SET_ELEMENT_HTML</a>&gt;) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Set inner or outer html of the element.</p>
+</div><h4 id='method.get_value' class='method'><code>fn <a href='#method.get_value' class='fnname'>get_value</a>(&amp;self) -&gt; <a class='struct' href='../../sciter/value/struct.Value.html' title='sciter::value::Value'>Value</a></code></h4>
+<div class='docblock'><p>Get value of the element.</p>
+</div><h4 id='method.set_value' class='method'><code>fn <a href='#method.set_value' class='fnname'>set_value</a>(&amp;mut self, val: <a class='struct' href='../../sciter/value/struct.Value.html' title='sciter::value::Value'>Value</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Set value of the element.</p>
+</div><h4 id='method.get_hwnd' class='method'><code>fn <a href='#method.get_hwnd' class='fnname'>get_hwnd</a>(&amp;self, for_root: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; HWINDOW</code></h4>
+<div class='docblock'><p>Get HWINDOW of containing window.</p>
+</div><h4 id='method.eval_script' class='method'><code>fn <a href='#method.eval_script' class='fnname'>eval_script</a>(&amp;self, script: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='struct' href='../../sciter/value/struct.Value.html' title='sciter::value::Value'>Value</a>&gt;</code></h4>
+<div class='docblock'><p>Evaluate script in element context.</p>
+</div><h4 id='method.call_function' class='method'><code>fn <a href='#method.call_function' class='fnname'>call_function</a>(&amp;self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, args: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='struct' href='../../sciter/value/struct.Value.html' title='sciter::value::Value'>Value</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='struct' href='../../sciter/value/struct.Value.html' title='sciter::value::Value'>Value</a>&gt;</code></h4>
+<div class='docblock'><p>Call scripting function defined in the namespace of the element (a.k.a. global function).</p>
+
+<p>You can use the <code>make_args!(a,b,c)</code> macro which help you construct script arguments from Rust types.</p>
+</div><h4 id='method.call_method' class='method'><code>fn <a href='#method.call_method' class='fnname'>call_method</a>(&amp;self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, args: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>&amp;[</a><a class='struct' href='../../sciter/value/struct.Value.html' title='sciter::value::Value'>Value</a><a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.slice.html'>]</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='struct' href='../../sciter/value/struct.Value.html' title='sciter::value::Value'>Value</a>&gt;</code></h4>
+<div class='docblock'><p>Call scripting method defined for the element.</p>
+
+<p>You can use the <code>make_args!(a,b,c)</code> macro which help you construct script arguments from Rust types.</p>
+</div><h4 id='method.attribute_count' class='method'><code>fn <a href='#method.attribute_count' class='fnname'>attribute_count</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<div class='docblock'><p>Get number of the attributes.</p>
+</div><h4 id='method.attribute_name' class='method'><code>fn <a href='#method.attribute_name' class='fnname'>attribute_name</a>(&amp;self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a></code></h4>
+<div class='docblock'><p>Get attribute name by its index.</p>
+</div><h4 id='method.attribute' class='method'><code>fn <a href='#method.attribute' class='fnname'>attribute</a>(&amp;self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a></code></h4>
+<div class='docblock'><p>Get attribute value by its index.</p>
+</div><h4 id='method.get_attribute' class='method'><code>fn <a href='#method.get_attribute' class='fnname'>get_attribute</a>(&amp;self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a>&gt;</code></h4>
+<div class='docblock'><p>Get attribute value by its name.</p>
+</div><h4 id='method.set_attribute' class='method'><code>fn <a href='#method.set_attribute' class='fnname'>set_attribute</a>(&amp;mut self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, value: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Add or replace attribute.</p>
+</div><h4 id='method.remove_attribute' class='method'><code>fn <a href='#method.remove_attribute' class='fnname'>remove_attribute</a>(&amp;mut self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Remove attribute.</p>
+</div><h4 id='method.toggle_attribute' class='method'><code>fn <a href='#method.toggle_attribute' class='fnname'>toggle_attribute</a>(&amp;mut self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, isset: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>, value: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;&amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>&gt;) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Toggle attribute.</p>
+</div><h4 id='method.clear_attributes' class='method'><code>fn <a href='#method.clear_attributes' class='fnname'>clear_attributes</a>(&amp;mut self) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Remove all attributes from the element.</p>
+</div><h4 id='method.get_style_attribute' class='method'><code>fn <a href='#method.get_style_attribute' class='fnname'>get_style_attribute</a>(&amp;self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='struct' href='https://doc.rust-lang.org/nightly/collections/string/struct.String.html' title='collections::string::String'>String</a></code></h4>
+<div class='docblock'><p>Get <a href="http://sciter.com/docs/content/sciter/Style.htm">style attribute</a> of the element by its name.</p>
+</div><h4 id='method.set_style_attribute' class='method'><code>fn <a href='#method.set_style_attribute' class='fnname'>set_style_attribute</a>(&amp;mut self, name: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, value: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Set <a href="http://sciter.com/docs/content/sciter/Style.htm">style attribute</a>.</p>
+</div><h4 id='method.index' class='method'><code>fn <a href='#method.index' class='fnname'>index</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<div class='docblock'><p>Get index of this element in its parent collection.</p>
+</div><h4 id='method.root' class='method'><code>fn <a href='#method.root' class='fnname'>root</a>(&amp;self) -&gt; <a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a></code></h4>
+<div class='docblock'><p>Get root of the element.</p>
+</div><h4 id='method.parent' class='method'><code>fn <a href='#method.parent' class='fnname'>parent</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Get parent element.</p>
+</div><h4 id='method.first_sibling' class='method'><code>fn <a href='#method.first_sibling' class='fnname'>first_sibling</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Get first sibling element.</p>
+</div><h4 id='method.last_sibling' class='method'><code>fn <a href='#method.last_sibling' class='fnname'>last_sibling</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Get last sibling element.</p>
+</div><h4 id='method.next_sibling' class='method'><code>fn <a href='#method.next_sibling' class='fnname'>next_sibling</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Get next sibling element.</p>
+</div><h4 id='method.prev_sibling' class='method'><code>fn <a href='#method.prev_sibling' class='fnname'>prev_sibling</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Get previous sibling element.</p>
+</div><h4 id='method.first_child' class='method'><code>fn <a href='#method.first_child' class='fnname'>first_child</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Get first child element.</p>
+</div><h4 id='method.last_child' class='method'><code>fn <a href='#method.last_child' class='fnname'>last_child</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Get last child element.</p>
+</div><h4 id='method.get' class='method'><code>fn <a href='#method.get' class='fnname'>get</a>(&amp;self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Get element child at specified index.</p>
+</div><h4 id='method.child' class='method'><code>fn <a href='#method.child' class='fnname'>child</a>(&amp;self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Get element child at specified index.</p>
+</div><h4 id='method.children_count' class='method'><code>fn <a href='#method.children_count' class='fnname'>children_count</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<div class='docblock'><p>Get number of child elements.</p>
+</div><h4 id='method.len' class='method'><code>fn <a href='#method.len' class='fnname'>len</a>(&amp;self) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a></code></h4>
+<div class='docblock'><p>Get number of child elements.</p>
+</div><h4 id='method.clear' class='method'><code>fn <a href='#method.clear' class='fnname'>clear</a>(&amp;mut self) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Clear content of the element.</p>
+</div><h4 id='method.clone_element' class='method'><code>fn <a href='#method.clone_element' class='fnname'>clone_element</a>(&amp;self) -&gt; <a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a></code></h4>
+<div class='docblock'><p>Create new element as copy of existing element.</p>
+
+<p>The new element is a full (deep) copy of the element and is initially disconnected from the DOM.
+Note that <code>Element.clone()</code> does not clone DOM element, just increments its reference count.</p>
+</div><h4 id='method.insert' class='method'><code>fn <a href='#method.insert' class='fnname'>insert</a>(&amp;mut self, index: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, child: &amp;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Insert element at <code>index</code> position of this element.</p>
+
+<p>Note that we cannot follow Rust semantic here
+because the newly created <code>Element</code> is unusable before it will be inserted at DOM.</p>
+</div><h4 id='method.append' class='method'><code>fn <a href='#method.append' class='fnname'>append</a>(&amp;mut self, child: &amp;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Append element as last child of this element.</p>
+</div><h4 id='method.push' class='method'><code>fn <a href='#method.push' class='fnname'>push</a>(&amp;mut self, element: <a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>)</code></h4>
+<div class='docblock'><p>Append element as last child of this element.</p>
+</div><h4 id='method.pop' class='method'><code>fn <a href='#method.pop' class='fnname'>pop</a>(&amp;mut self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
+<div class='docblock'><p>Remove the last child from this element and returns it, or <code>None</code> if this element is empty.</p>
+</div><h4 id='method.detach' class='method'><code>fn <a href='#method.detach' class='fnname'>detach</a>(&amp;mut self) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Take element out of its container (and DOM tree).</p>
+</div><h4 id='method.destroy' class='method'><code>fn <a href='#method.destroy' class='fnname'>destroy</a>(&amp;mut self) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Take element out of its container (and DOM tree) and force destruction of all behaviors.</p>
+</div><h4 id='method.swap' class='method'><code>fn <a href='#method.swap' class='fnname'>swap</a>(&amp;mut self, other: &amp;mut <a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Swap element positions.</p>
+</div><h4 id='method.test' class='method'><code>fn <a href='#method.test' class='fnname'>test</a>(&amp;self, selector: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Test this element against CSS selector(s).</p>
+</div><h4 id='method.find_nearest_parent' class='method'><code>fn <a href='#method.find_nearest_parent' class='fnname'>find_nearest_parent</a>(&amp;self, selector: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Will find first parent element starting from this satisfying given css selector(s).</p>
+</div><h4 id='method.find_first' class='method'><code>fn <a href='#method.find_first' class='fnname'>find_first</a>(&amp;self, selector: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;&gt;</code></h4>
+<div class='docblock'><p>Will find first element starting from this satisfying given css selector(s).</p>
+</div><h4 id='method.find_all' class='method'><code>fn <a href='#method.find_all' class='fnname'>find_all</a>(&amp;self, selector: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='https://doc.rust-lang.org/nightly/collections/vec/struct.Vec.html' title='collections::vec::Vec'>Vec</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;&gt;&gt;</code></h4>
+<div class='docblock'><p>Will find all elements starting from this satisfying given css selector(s).</p>
+</div><h4 id='method.update' class='method'><code>fn <a href='#method.update' class='fnname'>update</a>(&amp;self, render_now: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Apply changes and refresh element area in its window.</p>
+</div><h4 id='method.start_timer' class='method'><code>fn <a href='#method.start_timer' class='fnname'>start_timer</a>(&amp;self, period_ms: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>, timer_id: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Start Timer for the element. Element will receive <code>on_timer</code> event.</p>
+
+<p>Note that timer events are not bubbling, so you need attach handler to the target element directly.</p>
+</div><h4 id='method.stop_timer' class='method'><code>fn <a href='#method.stop_timer' class='fnname'>stop_timer</a>(&amp;self, timer_id: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Stop Timer for the element.</p>
+</div><h4 id='method.attach_handler' class='method'><code>fn <a href='#method.attach_handler' class='fnname'>attach_handler</a>&lt;T: <a class='trait' href='../../sciter/dom/event/trait.EventHandler.html' title='sciter::dom::event::EventHandler'>EventHandler</a>&gt;(&amp;mut self, handler: T) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>&gt;</code></h4>
+<div class='docblock'><p>Attach the native event handler to this element.</p>
+</div><h4 id='method.detach_handler' class='method'><code>fn <a href='#method.detach_handler' class='fnname'>detach_handler</a>&lt;T: <a class='trait' href='../../sciter/dom/event/trait.EventHandler.html' title='sciter::dom::event::EventHandler'>EventHandler</a>&gt;(&amp;mut self, token: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.u64.html'>u64</a>) -&gt; <a class='type' href='../../sciter/dom/type.Result.html' title='sciter::dom::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+<div class='docblock'><p>Detach your handler from the element. Handlers identified by <code>token</code> from <code>attach_handler()</code> result.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html' title='core::ops::Drop'>Drop</a> for <a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a></code></h3><div class='docblock'><p>Release element pointer.</p>
+</div><div class='impl-items'><h4 id='method.drop' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Drop.html#method.drop' class='fnname'>drop</a>(&amp;mut self)</code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a></code></h3><div class='docblock'><p>Increment reference count of the dom element.</p>
+</div><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; Self</code></h4>
+<h4 id='method.clone_from' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html' title='core::fmt::Display'>Display</a> for <a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a></code></h3><div class='docblock'><p>Human element representation.</p>
+</div><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#method.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a></code></h3><div class='docblock'><p>Machine-like element visualization.</p>
+</div><div class='impl-items'><h4 id='method.fmt-1' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, f: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ne' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, __arg_0: &amp;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "sciter";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

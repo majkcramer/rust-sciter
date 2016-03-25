@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["SCDOM_RESULT","Type of the result value for Sciter DOM functions."],["SET_ELEMENT_HTML","`dom::Element.set_html()` options."]],"type":[["HELEMENT",""]]});

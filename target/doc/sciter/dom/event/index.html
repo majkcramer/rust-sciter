@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `event` mod in crate `sciter`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, event">
+
+    <title>sciter::dom::event - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>sciter</a>::<wbr><a href='../index.html'>dom</a></p><script>window.sidebarCurrent = {name: 'event', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>sciter</a>::<wbr><a href='../index.html'>dom</a>::<wbr><a class='mod' href=''>event</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-2916' class='srclink' href='../../../src/sciter/dom.rs.html#928-1115' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Behaviors support (a.k.a windowless controls).</p>
+
+<h1 id='behaviors-and-event-handling' class='section-header'><a href='#behaviors-and-event-handling'>Behaviors and event handling.</a></h1>
+<p>Primary goal of User Interface (UI) as a subsystem is to present some information to the user
+and generate some events according to user’s actions.
+Your application handles UI events and acts accordingly executing its functions.</p>
+
+<p>To be able to handle events in native code you will need to attach instance of <code>sciter::EventHandler</code>
+to existing DOM element or to the window itself. In the <code>EventHandler</code> you will receive all events
+dispatched to the element and its children as before children (in <code>PHASE_MASK::SINKING</code> phase)
+as after them (<code>PHASE_MASK::BUBBLING</code> event phase), see <a href="http://sciter.com/developers/for-native-gui-programmers/#events-propagation">Events Propagation</a>.</p>
+
+<p><code>EventHandler</code> attached to the window will receive all DOM events no matter which element they are targeted to.</p>
+
+<p><code>EventHandler</code> contains various methods – receivers of events of various types.
+You can override any of these methods in order to receive events you are interested in your implementation of <code>sciter::EventHandler</code> class.</p>
+
+<p>To attach native event handler to DOM element or to the window you can do one of these:</p>
+
+<ul>
+<li>&quot;Manually&quot;, to Sciter window: <code>sciter::Window.event_handler(your_event_handler)</code></li>
+<li>&quot;Manually&quot;, to arbitrary DOM element: <code>sciter::dom::Element.attach_handler(your_event_handler)</code></li>
+<li>To group of DOM elements by declaration in CSS: <code>selector { behavior:your-behavior-name }</code></li>
+</ul>
+
+<p>You also can assign events handlers defined in script code:</p>
+
+<ul>
+<li>&quot;Manually&quot;, individual events: if you have reference <code>el</code> of some element then to handle mouse events you can do this for example:</li>
+</ul>
+
+<pre><code class="language-tiscript">el.onMouse = function(evt) { ... }
+</code></pre>
+
+<ul>
+<li>&quot;Manually&quot;, by assigning behavior class to the <a href="http://sciter.com/docs/content/sciter/Element.htm">Element</a>:</li>
+</ul>
+
+<pre><code class="language-tiscript">class MyEventsHandler: Element { ... }  // your behavior class which inherits sciter&#39;s Element class
+el.prototype = MyEventsHandler; // &quot;sub-class&quot; the element.
+</code></pre>
+
+<ul>
+<li>By declaration in CSS to all elements satisfying some CSS selector:</li>
+</ul>
+
+<pre><code class="language-css">selector { prototype: MyEventsHandler; }
+</code></pre>
+
+<p>In this case <code>MyEventsHandler</code> class should be defined in one of script files loaded by your HTML.</p>
+
+<p>See the <strong>Behavior attributes</strong> section of <a href="http://sciter.com/docs/content/css/cssmap.html">Sciter CSS property map</a>
+and <a href="http://www.terrainformatica.com/2014/07/sciter-declarative-behavior-assignment-by-css-prototype-and-aspect-properties/">this blog article</a> which covers
+Behaviors, Prototypes and Aspects of Sciter CSS behavior assignment.</p>
+
+<h1 id='script-and-native-code-interaction' class='section-header'><a href='#script-and-native-code-interaction'>Script and native code interaction</a></h1>
+<p>In Sciter you may want to define native functions that can be called by script.
+At the same time you may need to call script functions from native code.
+Sciter supports such interaction providing set of simple API functions:</p>
+
+<h2 id='evaluating-scripts-and-invoking-script-functions-from-native-code' class='section-header'><a href='#evaluating-scripts-and-invoking-script-functions-from-native-code'>Evaluating scripts and invoking script functions from native code</a></h2>
+<p>You can use one of these methods to call scripts from code of your application:</p>
+
+<ul>
+<li>To evaluate arbitrary script in context of current document loaded into the window:</li>
+</ul>
+
+<pre><code class="language-no-run">let root = Element::from_window(hwnd);
+let result: Value = root.eval_script(&quot;... script ...&quot;);
+</code></pre>
+
+<ul>
+<li>To call global function defined in script using its full name (may include name of namespaces where it resides):</li>
+</ul>
+
+<pre><code class="language-no-run">let root = Element::from_window(hwnd);
+let result: Value = root.call_function(&quot;namespace.name&quot;, &amp;make_args!(p0, p1, ...));
+</code></pre>
+
+<p>parameters – <code>&amp;[Value]</code> slice.</p>
+
+<ul>
+<li>To call method (function) defined in script for particular DOM element:</li>
+</ul>
+
+<pre><code class="language-no-run">dom::element el = root.find_first(...);
+let result: Value = el.call_method(&quot;method_name&quot;, &amp;make_args!());
+</code></pre>
+
+<h2 id='calling-native-code-from-script' class='section-header'><a href='#calling-native-code-from-script'>Calling native code from script</a></h2>
+<p>If needed your application may expose some [native] functions to be called by script code.
+Usually this is made by implementing your own <code>EventHandler</code> and overriding its <code>on_script_call</code> method.
+If you will do this then you can invoke this callback from script as:</p>
+
+<ul>
+<li>&quot;global&quot; native functions: <code>var r = view.funcName( p0, p1, ... );</code> – calling <code>on_script_call</code> of <code>EventHandler</code> instance
+<strong>attached to the window</strong>.</li>
+<li>As element’s methods: <code>var r = el.funcName( p0, p1, ... );</code> – calling <code>on_script_call</code> of <code>EventHandler</code> instance
+(native behavior) attached to the <strong>element</strong>.</li>
+</ul>
+
+<p>This way you can establish interaction between scipt and native code inside your application.</p>
+</div><h2 id='enums' class='section-header'><a href="#enums">Enums</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.BEHAVIOR_EVENTS.html'
+                                  title='sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></td>
+                           <td class='docblock short'>
+                                <p>Behavior event codes.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.EDIT_CHANGED_REASON.html'
+                                  title='sciter::dom::event::EDIT_CHANGED_REASON'>EDIT_CHANGED_REASON</a></td>
+                           <td class='docblock short'>
+                                <p>Edit control change trigger.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.EVENT_GROUPS.html'
+                                  title='sciter::dom::event::EVENT_GROUPS'>EVENT_GROUPS</a></td>
+                           <td class='docblock short'>
+                                <p>Event groups for subscription.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.EVENT_REASON.html'
+                                  title='sciter::dom::event::EVENT_REASON'>EVENT_REASON</a></td>
+                           <td class='docblock short'>
+                                <p>General event source triggers</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.EventReason.html'
+                                  title='sciter::dom::event::EventReason'>EventReason</a></td>
+                           <td class='docblock short'>
+                                <p>UI action causing change.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='enum' href='enum.PHASE_MASK.html'
+                                  title='sciter::dom::event::PHASE_MASK'>PHASE_MASK</a></td>
+                           <td class='docblock short'>
+                                <p>Event propagation schema.</p>
+                           </td>
+                       </tr></table><h2 id='traits' class='section-header'><a href="#traits">Traits</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='trait' href='trait.EventHandler.html'
+                                  title='sciter::dom::event::EventHandler'>EventHandler</a></td>
+                           <td class='docblock short'>
+                                <p>DOM event handler which can be attached to any DOM element.</p>
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.default_events.html'
+                                  title='sciter::dom::event::default_events'>default_events</a></td>
+                           <td class='docblock short'>
+                                <p>Default subscription events</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "sciter";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

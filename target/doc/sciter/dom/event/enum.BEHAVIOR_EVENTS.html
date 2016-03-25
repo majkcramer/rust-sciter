@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `BEHAVIOR_EVENTS` enum in crate `sciter`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, BEHAVIOR_EVENTS">
+
+    <title>sciter::dom::event::BEHAVIOR_EVENTS - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>sciter</a>::<wbr><a href='../index.html'>dom</a>::<wbr><a href='index.html'>event</a></p><script>window.sidebarCurrent = {name: 'BEHAVIOR_EVENTS', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content enum">
+<h1 class='fqn'><span class='in-band'>Enum <a href='../../index.html'>sciter</a>::<wbr><a href='../index.html'>dom</a>::<wbr><a href='index.html'>event</a>::<wbr><a class='enum' href=''>BEHAVIOR_EVENTS</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-827' class='srclink' href='../../../src/sciter/scbehavior.rs.html#149-317' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum BEHAVIOR_EVENTS {
+    BUTTON_CLICK,
+    BUTTON_PRESS,
+    BUTTON_STATE_CHANGED,
+    EDIT_VALUE_CHANGING,
+    EDIT_VALUE_CHANGED,
+    SELECT_SELECTION_CHANGED,
+    SELECT_STATE_CHANGED,
+    POPUP_REQUEST,
+    POPUP_READY,
+    POPUP_DISMISSED,
+    MENU_ITEM_ACTIVE,
+    MENU_ITEM_CLICK,
+    CONTEXT_MENU_REQUEST,
+    VISIUAL_STATUS_CHANGED,
+    DISABLED_STATUS_CHANGED,
+    POPUP_DISMISSING,
+    CONTENT_CHANGED,
+    CLICK,
+    CHANGE,
+    HYPERLINK_CLICK,
+    ELEMENT_COLLAPSED,
+    ELEMENT_EXPANDED,
+    ACTIVATE_CHILD,
+    INIT_DATA_VIEW,
+    ROWS_DATA_REQUEST,
+    UI_STATE_CHANGED,
+    FORM_SUBMIT,
+    FORM_RESET,
+    DOCUMENT_COMPLETE,
+    HISTORY_PUSH,
+    HISTORY_DROP,
+    HISTORY_PRIOR,
+    HISTORY_NEXT,
+    HISTORY_STATE_CHANGED,
+    CLOSE_POPUP,
+    REQUEST_TOOLTIP,
+    ANIMATION,
+    DOCUMENT_CREATED,
+    DOCUMENT_CLOSE_REQUEST,
+    DOCUMENT_CLOSE,
+    DOCUMENT_READY,
+    VIDEO_INITIALIZED,
+    VIDEO_STARTED,
+    VIDEO_STOPPED,
+    VIDEO_BIND_RQ,
+    PAGINATION_STARTS,
+    PAGINATION_PAGE,
+    PAGINATION_ENDS,
+    FIRST_APPLICATION_EVENT_CODE,
+}</pre><div class='docblock'><p>Behavior event codes.</p>
+</div><h2 class='variants'>Variants</h2>
+<table class='variants_table'><tr><td id='variant.BUTTON_CLICK'><code>BUTTON_CLICK</code></td><td><div class='docblock'><p>click on button</p>
+</div></td><td></td></tr><tr><td id='variant.BUTTON_PRESS'><code>BUTTON_PRESS</code></td><td><div class='docblock'><p>mouse down or key down in button</p>
+</div></td><td></td></tr><tr><td id='variant.BUTTON_STATE_CHANGED'><code>BUTTON_STATE_CHANGED</code></td><td><div class='docblock'><p>checkbox/radio/slider changed its state/value</p>
+</div></td><td></td></tr><tr><td id='variant.EDIT_VALUE_CHANGING'><code>EDIT_VALUE_CHANGING</code></td><td><div class='docblock'><p>before text change</p>
+</div></td><td></td></tr><tr><td id='variant.EDIT_VALUE_CHANGED'><code>EDIT_VALUE_CHANGED</code></td><td><div class='docblock'><p>after text change</p>
+</div></td><td></td></tr><tr><td id='variant.SELECT_SELECTION_CHANGED'><code>SELECT_SELECTION_CHANGED</code></td><td><div class='docblock'><p>selection in <code>&lt;select&gt;</code> changed</p>
+</div></td><td></td></tr><tr><td id='variant.SELECT_STATE_CHANGED'><code>SELECT_STATE_CHANGED</code></td><td><div class='docblock'><p>node in select expanded/collapsed, heTarget is the node</p>
+</div></td><td></td></tr><tr><td id='variant.POPUP_REQUEST'><code>POPUP_REQUEST</code></td><td><div class='docblock'><p>request to show popup just received,
+here DOM of popup element can be modifed.</p>
+</div></td><td></td></tr><tr><td id='variant.POPUP_READY'><code>POPUP_READY</code></td><td><div class='docblock'><p>popup element has been measured and ready to be shown on screen,
+here you can use functions like <code>ScrollToView</code>.</p>
+</div></td><td></td></tr><tr><td id='variant.POPUP_DISMISSED'><code>POPUP_DISMISSED</code></td><td><div class='docblock'><p>popup element is closed,
+here DOM of popup element can be modifed again - e.g. some items can be removed to free memory.</p>
+</div></td><td></td></tr><tr><td id='variant.MENU_ITEM_ACTIVE'><code>MENU_ITEM_ACTIVE</code></td><td><div class='docblock'><p>menu item activated by mouse hover or by keyboard,</p>
+</div></td><td></td></tr><tr><td id='variant.MENU_ITEM_CLICK'><code>MENU_ITEM_CLICK</code></td><td><div class='docblock'><p>menu item click,
+BEHAVIOR_EVENT_PARAMS structure layout
+BEHAVIOR_EVENT_PARAMS.cmd - MENU_ITEM_CLICK/MENU_ITEM_ACTIVE
+BEHAVIOR_EVENT_PARAMS.heTarget - owner(anchor) of the menu
+BEHAVIOR_EVENT_PARAMS.he - the menu item, presumably <code>&lt;li&gt;</code> element
+BEHAVIOR_EVENT_PARAMS.reason - BY_MOUSE_CLICK | BY_KEY_CLICK</p>
+</div></td><td></td></tr><tr><td id='variant.CONTEXT_MENU_REQUEST'><code>CONTEXT_MENU_REQUEST</code></td><td><div class='docblock'><p>&quot;right-click&quot;, BEHAVIOR_EVENT_PARAMS::he is current popup menu <code>HELEMENT</code> being processed or <code>NULL</code>.
+application can provide its own <code>HELEMENT</code> here (if it is <code>NULL</code>) or modify current menu element.</p>
+</div></td><td></td></tr><tr><td id='variant.VISIUAL_STATUS_CHANGED'><code>VISIUAL_STATUS_CHANGED</code></td><td><div class='docblock'><p>broadcast notification, sent to all elements of some container being shown or hidden</p>
+</div></td><td></td></tr><tr><td id='variant.DISABLED_STATUS_CHANGED'><code>DISABLED_STATUS_CHANGED</code></td><td><div class='docblock'><p>broadcast notification, sent to all elements of some container that got new value of <code>:disabled</code> state</p>
+</div></td><td></td></tr><tr><td id='variant.POPUP_DISMISSING'><code>POPUP_DISMISSING</code></td><td><div class='docblock'><p>popup is about to be closed</p>
+</div></td><td></td></tr><tr><td id='variant.CONTENT_CHANGED'><code>CONTENT_CHANGED</code></td><td><div class='docblock'><p>content has been changed, is posted to the element that gets content changed,  reason is combination of <code>CONTENT_CHANGE_BITS</code>.
+<code>target == NULL</code> means the window got new document and this event is dispatched only to the window.</p>
+</div></td><td></td></tr><tr><td id='variant.CLICK'><code>CLICK</code></td><td><div class='docblock'><p>generic click</p>
+</div></td><td></td></tr><tr><td id='variant.CHANGE'><code>CHANGE</code></td><td><div class='docblock'><p>generic change</p>
+</div></td><td></td></tr><tr><td id='variant.HYPERLINK_CLICK'><code>HYPERLINK_CLICK</code></td><td><div class='docblock'><p>hyperlink click</p>
+</div></td><td></td></tr><tr><td id='variant.ELEMENT_COLLAPSED'><code>ELEMENT_COLLAPSED</code></td><td><div class='docblock'><p>element was collapsed, so far only behavior:tabs is sending these two to the panels</p>
+</div></td><td></td></tr><tr><td id='variant.ELEMENT_EXPANDED'><code>ELEMENT_EXPANDED</code></td><td><div class='docblock'><p>element was expanded,</p>
+</div></td><td></td></tr><tr><td id='variant.ACTIVATE_CHILD'><code>ACTIVATE_CHILD</code></td><td><div class='docblock'><p>activate (select) child,
+used for example by accesskeys behaviors to send activation request, e.g. tab on <code>behavior:tabs</code>.</p>
+</div></td><td></td></tr><tr><td id='variant.INIT_DATA_VIEW'><code>INIT_DATA_VIEW</code></td><td><div class='docblock'><p>request to virtual grid to initialize its view</p>
+</div></td><td></td></tr><tr><td id='variant.ROWS_DATA_REQUEST'><code>ROWS_DATA_REQUEST</code></td><td><div class='docblock'><p>request from virtual grid to data source behavior to fill data in the table
+parameters passed throug <code>DATA_ROWS_PARAMS</code> structure.</p>
+</div></td><td></td></tr><tr><td id='variant.UI_STATE_CHANGED'><code>UI_STATE_CHANGED</code></td><td><div class='docblock'><p>ui state changed, observers shall update their visual states.
+is sent for example by <code>behavior:richtext</code> when caret position/selection has changed.</p>
+</div></td><td></td></tr><tr><td id='variant.FORM_SUBMIT'><code>FORM_SUBMIT</code></td><td><div class='docblock'><p><code>behavior:form</code> detected submission event. <code>BEHAVIOR_EVENT_PARAMS::data</code> field contains data to be posted.
+<code>BEHAVIOR_EVENT_PARAMS::data</code> is of type <code>T_MAP</code> in this case key/value pairs of data that is about
+to be submitted. You can modify the data or discard submission by returning true from the handler.</p>
+</div></td><td></td></tr><tr><td id='variant.FORM_RESET'><code>FORM_RESET</code></td><td><div class='docblock'><p><code>behavior:form</code> detected reset event (from <code>button type=reset</code>). <code>BEHAVIOR_EVENT_PARAMS::data</code> field contains data to be reset.
+<code>BEHAVIOR_EVENT_PARAMS::data</code> is of type <code>T_MAP</code> in this case key/value pairs of data that is about
+to be rest. You can modify the data or discard reset by returning true from the handler.</p>
+</div></td><td></td></tr><tr><td id='variant.DOCUMENT_COMPLETE'><code>DOCUMENT_COMPLETE</code></td><td><div class='docblock'><p>document in <code>behavior:frame</code> or root document is complete.</p>
+</div></td><td></td></tr><tr><td id='variant.HISTORY_PUSH'><code>HISTORY_PUSH</code></td><td><div class='docblock'><p>requests to <code>behavior:history</code> (commands)</p>
+</div></td><td></td></tr><tr><td id='variant.HISTORY_DROP'><code>HISTORY_DROP</code></td><td></td><td></td></tr><tr><td id='variant.HISTORY_PRIOR'><code>HISTORY_PRIOR</code></td><td></td><td></td></tr><tr><td id='variant.HISTORY_NEXT'><code>HISTORY_NEXT</code></td><td></td><td></td></tr><tr><td id='variant.HISTORY_STATE_CHANGED'><code>HISTORY_STATE_CHANGED</code></td><td><div class='docblock'><p><code>behavior:history</code> notification - history stack has changed</p>
+</div></td><td></td></tr><tr><td id='variant.CLOSE_POPUP'><code>CLOSE_POPUP</code></td><td><div class='docblock'><p>close popup request,</p>
+</div></td><td></td></tr><tr><td id='variant.REQUEST_TOOLTIP'><code>REQUEST_TOOLTIP</code></td><td><div class='docblock'><p>request tooltip, <code>evt.source</code> &lt;- is the tooltip element.</p>
+</div></td><td></td></tr><tr><td id='variant.ANIMATION'><code>ANIMATION</code></td><td><div class='docblock'><p>animation started (<code>reason=1</code>) or ended(<code>reason=0</code>) on the element.</p>
+</div></td><td></td></tr><tr><td id='variant.DOCUMENT_CREATED'><code>DOCUMENT_CREATED</code></td><td><div class='docblock'><p>document created, script namespace initialized. <code>target</code> -&gt; the document</p>
+</div></td><td></td></tr><tr><td id='variant.DOCUMENT_CLOSE_REQUEST'><code>DOCUMENT_CLOSE_REQUEST</code></td><td><div class='docblock'><p>document is about to be closed, to cancel closing do: <code>evt.data = sciter::value(&quot;cancel&quot;)</code>;</p>
+</div></td><td></td></tr><tr><td id='variant.DOCUMENT_CLOSE'><code>DOCUMENT_CLOSE</code></td><td><div class='docblock'><p>last notification before document removal from the DOM</p>
+</div></td><td></td></tr><tr><td id='variant.DOCUMENT_READY'><code>DOCUMENT_READY</code></td><td><div class='docblock'><p>document has got DOM structure, styles and behaviors of DOM elements. Script loading run is complete at this moment.</p>
+</div></td><td></td></tr><tr><td id='variant.VIDEO_INITIALIZED'><code>VIDEO_INITIALIZED</code></td><td><div class='docblock'><p><code>&lt;video&gt;</code> &quot;ready&quot; notification</p>
+</div></td><td></td></tr><tr><td id='variant.VIDEO_STARTED'><code>VIDEO_STARTED</code></td><td><div class='docblock'><p><code>&lt;video&gt;</code> playback started notification</p>
+</div></td><td></td></tr><tr><td id='variant.VIDEO_STOPPED'><code>VIDEO_STOPPED</code></td><td><div class='docblock'><p><code>&lt;video&gt;</code> playback stoped/paused notification</p>
+</div></td><td></td></tr><tr><td id='variant.VIDEO_BIND_RQ'><code>VIDEO_BIND_RQ</code></td><td><div class='docblock'><p><code>&lt;video&gt;</code> request for frame source binding,
+If you want to provide your own video frames source for the given target <code>&lt;video&gt;</code> element do the following:</p>
+
+<ol>
+<li>Handle and consume this <code>VIDEO_BIND_RQ</code> request</li>
+<li>You will receive second <code>VIDEO_BIND_RQ</code> request/event for the same <code>&lt;video&gt;</code> element
+but this time with the <code>reason</code> field set to an instance of <code>sciter::video_destination</code> interface.</li>
+<li><code>add_ref()</code> it and store it for example in worker thread producing video frames.</li>
+<li>call <code>sciter::video_destination::start_streaming(...)</code> providing needed parameters
+call <code>sciter::video_destination::render_frame(...)</code> as soon as they are available
+call <code>sciter::video_destination::stop_streaming()</code> to stop the rendering (a.k.a. end of movie reached)</li>
+</ol>
+</div></td><td></td></tr><tr><td id='variant.PAGINATION_STARTS'><code>PAGINATION_STARTS</code></td><td><div class='docblock'><p><code>behavior:pager</code> starts pagination</p>
+</div></td><td></td></tr><tr><td id='variant.PAGINATION_PAGE'><code>PAGINATION_PAGE</code></td><td><div class='docblock'><p><code>behavior:pager</code> paginated page no, reason -&gt; page no</p>
+</div></td><td></td></tr><tr><td id='variant.PAGINATION_ENDS'><code>PAGINATION_ENDS</code></td><td><div class='docblock'><p><code>behavior:pager</code> end pagination, reason -&gt; total pages</p>
+</div></td><td></td></tr><tr><td id='variant.FIRST_APPLICATION_EVENT_CODE'><code>FIRST_APPLICATION_EVENT_CODE</code></td><td><div class='docblock'><p>all custom event codes shall be greater than this number. All codes below this will be used
+solely by application - Sciter will not intrepret it and will do just dispatching.
+To send event notifications with  these codes use <code>SciterSend</code>/<code>PostEvent</code> API.</p>
+</div></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></h4>
+<h4 id='method.clone_from' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ne' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html' title='core::cmp::PartialOrd'>PartialOrd</a> for <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></h3><div class='impl-items'><h4 id='method.partial_cmp' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.partial_cmp' class='fnname'>partial_cmp</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/cmp/enum.Ordering.html' title='core::cmp::Ordering'>Ordering</a>&gt;</code></h4>
+<h4 id='method.lt' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.lt' class='fnname'>lt</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.le' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.le' class='fnname'>le</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.gt' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.gt' class='fnname'>gt</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ge' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.ge' class='fnname'>ge</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='../../../sciter/dom/event/enum.BEHAVIOR_EVENTS.html' title='sciter::dom::event::BEHAVIOR_EVENTS'>BEHAVIOR_EVENTS</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "sciter";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

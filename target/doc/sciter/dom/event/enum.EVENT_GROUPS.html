@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `EVENT_GROUPS` enum in crate `sciter`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, EVENT_GROUPS">
+
+    <title>sciter::dom::event::EVENT_GROUPS - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>sciter</a>::<wbr><a href='../index.html'>dom</a>::<wbr><a href='index.html'>event</a></p><script>window.sidebarCurrent = {name: 'EVENT_GROUPS', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content enum">
+<h1 class='fqn'><span class='in-band'>Enum <a href='../../index.html'>sciter</a>::<wbr><a href='../index.html'>dom</a>::<wbr><a href='index.html'>event</a>::<wbr><a class='enum' href=''>EVENT_GROUPS</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-687' class='srclink' href='../../../src/sciter/scbehavior.rs.html#58-99' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum EVENT_GROUPS {
+    HANDLE_INITIALIZATION,
+    HANDLE_MOUSE,
+    HANDLE_KEY,
+    HANDLE_FOCUS,
+    HANDLE_SCROLL,
+    HANDLE_TIMER,
+    HANDLE_SIZE,
+    HANDLE_DRAW,
+    HANDLE_DATA_ARRIVED,
+    HANDLE_BEHAVIOR_EVENT,
+    HANDLE_METHOD_CALL,
+    HANDLE_SCRIPTING_METHOD_CALL,
+    HANDLE_TISCRIPT_METHOD_CALL,
+    HANDLE_EXCHANGE,
+    HANDLE_GESTURE,
+    HANDLE_ALL,
+    SUBSCRIPTIONS_REQUEST,
+}</pre><div class='docblock'><p>Event groups for subscription.</p>
+</div><h2 class='variants'>Variants</h2>
+<table class='variants_table'><tr><td id='variant.HANDLE_INITIALIZATION'><code>HANDLE_INITIALIZATION</code></td><td><div class='docblock'><p>attached/detached</p>
+</div></td><td></td></tr><tr><td id='variant.HANDLE_MOUSE'><code>HANDLE_MOUSE</code></td><td><div class='docblock'><p>mouse events</p>
+</div></td><td></td></tr><tr><td id='variant.HANDLE_KEY'><code>HANDLE_KEY</code></td><td><div class='docblock'><p>key events</p>
+</div></td><td></td></tr><tr><td id='variant.HANDLE_FOCUS'><code>HANDLE_FOCUS</code></td><td><div class='docblock'><p>focus events, if this flag is set it also means that element it attached to is focusable</p>
+</div></td><td></td></tr><tr><td id='variant.HANDLE_SCROLL'><code>HANDLE_SCROLL</code></td><td><div class='docblock'><p>scroll events</p>
+</div></td><td></td></tr><tr><td id='variant.HANDLE_TIMER'><code>HANDLE_TIMER</code></td><td><div class='docblock'><p>timer event</p>
+</div></td><td></td></tr><tr><td id='variant.HANDLE_SIZE'><code>HANDLE_SIZE</code></td><td><div class='docblock'><p>size changed event</p>
+</div></td><td></td></tr><tr><td id='variant.HANDLE_DRAW'><code>HANDLE_DRAW</code></td><td><div class='docblock'><p>drawing request (event)</p>
+</div></td><td></td></tr><tr><td id='variant.HANDLE_DATA_ARRIVED'><code>HANDLE_DATA_ARRIVED</code></td><td><div class='docblock'><p>requested data () has been delivered</p>
+</div></td><td></td></tr><tr><td id='variant.HANDLE_BEHAVIOR_EVENT'><code>HANDLE_BEHAVIOR_EVENT</code></td><td><div class='docblock'><p>logical, synthetic events:
+BUTTON_CLICK, HYPERLINK_CLICK, etc.,
+a.k.a. notifications from intrinsic behaviors </p>
+</div></td><td></td></tr><tr><td id='variant.HANDLE_METHOD_CALL'><code>HANDLE_METHOD_CALL</code></td><td><div class='docblock'><p>behavior specific methods</p>
+</div></td><td></td></tr><tr><td id='variant.HANDLE_SCRIPTING_METHOD_CALL'><code>HANDLE_SCRIPTING_METHOD_CALL</code></td><td><div class='docblock'><p>behavior specific methods</p>
+</div></td><td></td></tr><tr><td id='variant.HANDLE_TISCRIPT_METHOD_CALL'><code>HANDLE_TISCRIPT_METHOD_CALL</code></td><td><div class='docblock'><p>behavior specific methods using direct tiscript::value&#39;s</p>
+</div></td><td></td></tr><tr><td id='variant.HANDLE_EXCHANGE'><code>HANDLE_EXCHANGE</code></td><td><div class='docblock'><p>system drag-n-drop</p>
+</div></td><td></td></tr><tr><td id='variant.HANDLE_GESTURE'><code>HANDLE_GESTURE</code></td><td><div class='docblock'><p>touch input events</p>
+</div></td><td></td></tr><tr><td id='variant.HANDLE_ALL'><code>HANDLE_ALL</code></td><td><div class='docblock'><p>all of them</p>
+</div></td><td></td></tr><tr><td id='variant.SUBSCRIPTIONS_REQUEST'><code>SUBSCRIPTIONS_REQUEST</code></td><td><div class='docblock'><p>special value for getting subscription flags</p>
+</div></td><td></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html' title='core::ops::BitOr'>BitOr</a> for <a class='enum' href='../../../sciter/dom/event/enum.EVENT_GROUPS.html' title='sciter::dom::event::EVENT_GROUPS'>EVENT_GROUPS</a></code></h3><div class='impl-items'><h4 id='associatedtype.Output' class='type'><code>type Output = <a class='enum' href='../../../sciter/dom/event/enum.EVENT_GROUPS.html' title='sciter::dom::event::EVENT_GROUPS'>EVENT_GROUPS</a></code></h4>
+<h4 id='method.bitor' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html#method.bitor' class='fnname'>bitor</a>(self, rhs: Self::<a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html' title='core::ops::BitOr'>Output</a>) -&gt; Self::<a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html' title='core::ops::BitOr'>Output</a></code></h4>
+</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='enum' href='../../../sciter/dom/event/enum.EVENT_GROUPS.html' title='sciter::dom::event::EVENT_GROUPS'>EVENT_GROUPS</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='enum' href='../../../sciter/dom/event/enum.EVENT_GROUPS.html' title='sciter::dom::event::EVENT_GROUPS'>EVENT_GROUPS</a></code></h4>
+<h4 id='method.clone_from' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='enum' href='../../../sciter/dom/event/enum.EVENT_GROUPS.html' title='sciter::dom::event::EVENT_GROUPS'>EVENT_GROUPS</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a> for <a class='enum' href='../../../sciter/dom/event/enum.EVENT_GROUPS.html' title='sciter::dom::event::EVENT_GROUPS'>EVENT_GROUPS</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.eq' class='fnname'>eq</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../../sciter/dom/event/enum.EVENT_GROUPS.html' title='sciter::dom::event::EVENT_GROUPS'>EVENT_GROUPS</a>) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ne' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html' title='core::cmp::PartialOrd'>PartialOrd</a> for <a class='enum' href='../../../sciter/dom/event/enum.EVENT_GROUPS.html' title='sciter::dom::event::EVENT_GROUPS'>EVENT_GROUPS</a></code></h3><div class='impl-items'><h4 id='method.partial_cmp' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.partial_cmp' class='fnname'>partial_cmp</a>(&amp;self, __arg_0: &amp;<a class='enum' href='../../../sciter/dom/event/enum.EVENT_GROUPS.html' title='sciter::dom::event::EVENT_GROUPS'>EVENT_GROUPS</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/cmp/enum.Ordering.html' title='core::cmp::Ordering'>Ordering</a>&gt;</code></h4>
+<h4 id='method.lt' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.lt' class='fnname'>lt</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.le' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.le' class='fnname'>le</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.gt' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.gt' class='fnname'>gt</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ge' class='method'><span class="since">1.0.0</span><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.ge' class='fnname'>ge</a>(&amp;self, other: &amp;Rhs) -&gt; <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='enum' href='../../../sciter/dom/event/enum.EVENT_GROUPS.html' title='sciter::dom::event::EVENT_GROUPS'>EVENT_GROUPS</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "sciter";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>
