@@ -307,7 +307,7 @@
 </pre><pre class='rust '>
 <span class='doccomment'>//! UTF-8 &lt;&gt; UTF-16 conversion support.</span>
 
-<span class='comment'>// Since Rust haven&#39;t stable support of UTF-16, I&#39;ve ported this code </span>
+<span class='comment'>// Since Rust haven&#39;t stable support of UTF-16, I&#39;ve ported this code</span>
 <span class='comment'>// from Sciter SDK (aux-cvt.h)</span>
 
 <span class='comment'>// (C) 2003-2015, Andrew Fedoniouk (andrew@terrainformatica.com)</span>
@@ -316,7 +316,7 @@
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>allow</span>(<span class='ident'>dead_code</span>)]</span>
 
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>ffi</span>::{<span class='ident'>CStr</span>, <span class='ident'>CString</span>};
-<span class='kw'>use</span> <span class='ident'>sctypes</span>::{<span class='ident'>LPCSTR</span>, <span class='ident'>LPCWSTR</span>, <span class='ident'>LPCBYTE</span>};
+<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::{<span class='ident'>LPCSTR</span>, <span class='ident'>LPCWSTR</span>, <span class='ident'>LPCBYTE</span>};
 
 
 <span class='doccomment'>/// UTF-8 to UTF-16* converter.</span>
@@ -405,16 +405,16 @@
 		<span class='kw'>let</span> <span class='ident'>c</span>: <span class='ident'>u32</span> <span class='op'>=</span> <span class='ident'>wcs</span>[<span class='ident'>pc</span>] <span class='kw'>as</span> <span class='ident'>u32</span>;
 		<span class='kw'>if</span> (<span class='ident'>c</span> <span class='op'>&lt;</span> (<span class='number'>1</span> <span class='op'>&lt;&lt;</span> <span class='number'>7</span>)) {
 			<span class='ident'>outbuf</span>.<span class='ident'>push</span>(<span class='ident'>c</span> <span class='kw'>as</span> <span class='ident'>u8</span>);
-		
+
 		} <span class='kw'>else</span> <span class='kw'>if</span> (<span class='ident'>c</span> <span class='op'>&lt;</span> (<span class='number'>1</span> <span class='op'>&lt;&lt;</span> <span class='number'>11</span>)) {
 			<span class='ident'>outbuf</span>.<span class='ident'>push</span>(((<span class='ident'>c</span> <span class='op'>&gt;&gt;</span> <span class='number'>6</span>) <span class='op'>|</span> <span class='number'>0xc0</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
 			<span class='ident'>outbuf</span>.<span class='ident'>push</span>(((<span class='ident'>c</span> <span class='kw-2'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>|</span> <span class='number'>0x80</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
-		
+
 		} <span class='kw'>else</span> <span class='kw'>if</span> (<span class='ident'>c</span> <span class='op'>&lt;</span> (<span class='number'>1</span> <span class='op'>&lt;&lt;</span> <span class='number'>16</span>)) {
 			<span class='ident'>outbuf</span>.<span class='ident'>push</span>(((<span class='ident'>c</span> <span class='op'>&gt;&gt;</span> <span class='number'>12</span>) <span class='op'>|</span> <span class='number'>0xe0</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
 			<span class='ident'>outbuf</span>.<span class='ident'>push</span>((((<span class='ident'>c</span> <span class='op'>&gt;&gt;</span> <span class='number'>6</span>) <span class='kw-2'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>|</span> <span class='number'>0x80</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
 			<span class='ident'>outbuf</span>.<span class='ident'>push</span>(((<span class='ident'>c</span> <span class='kw-2'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>|</span> <span class='number'>0x80</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
-		
+
 		} <span class='kw'>else</span> <span class='kw'>if</span> (<span class='ident'>c</span> <span class='op'>&lt;</span> (<span class='number'>1</span> <span class='op'>&lt;&lt;</span> <span class='number'>21</span>)) {
 			<span class='ident'>outbuf</span>.<span class='ident'>push</span>(((<span class='ident'>c</span> <span class='op'>&gt;&gt;</span> <span class='number'>18</span>) <span class='op'>|</span> <span class='number'>0xf0</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
 			<span class='ident'>outbuf</span>.<span class='ident'>push</span>((((<span class='ident'>c</span> <span class='op'>&gt;&gt;</span> <span class='number'>12</span>) <span class='kw-2'>&amp;</span> <span class='number'>0x3f</span>) <span class='op'>|</span> <span class='number'>0x80</span>) <span class='kw'>as</span> <span class='ident'>u8</span>);
@@ -519,9 +519,9 @@
 	<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>allow</span>(<span class='ident'>unused_imports</span>)]</span>
 
 	<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>ffi</span>::{<span class='ident'>CStr</span>, <span class='ident'>CString</span>};
-	<span class='kw'>use</span> <span class='ident'>sctypes</span>::{<span class='ident'>LPCWSTR</span>, <span class='ident'>LPCSTR</span>};
+	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::{<span class='ident'>LPCWSTR</span>, <span class='ident'>LPCSTR</span>};
 	<span class='kw'>use</span> <span class='ident'>super</span>::{<span class='ident'>wcslen</span>, <span class='ident'>u2s</span>, <span class='ident'>w2s</span>, <span class='ident'>s2vec</span>};
-	
+
 	<span class='attribute'>#[<span class='ident'>test</span>]</span>
 	<span class='kw'>fn</span> <span class='ident'>test_wcslen</span>() {
 		<span class='kw'>let</span> <span class='ident'>nullptr</span>: <span class='ident'>LPCWSTR</span> <span class='op'>=</span> ::<span class='ident'>std</span>::<span class='ident'>ptr</span>::<span class='ident'>null</span>();

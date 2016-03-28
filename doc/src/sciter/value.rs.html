@@ -960,9 +960,9 @@ assert!(v.get_item(Value::from(&quot;one&quot;)).is_int());
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>allow</span>(<span class='ident'>dead_code</span>)]</span>
 
 <span class='kw'>use</span> ::{<span class='ident'>_API</span>};
-<span class='kw'>use</span> <span class='ident'>sctypes</span>::<span class='op'>*</span>;
-<span class='kw'>use</span> <span class='ident'>scvalue</span>::{<span class='ident'>VALUE</span>, <span class='ident'>VALUE_UNIT_TYPE_STRING</span>};
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>scvalue</span>::{<span class='ident'>VALUE_RESULT</span>, <span class='ident'>VALUE_STRING_CVT_TYPE</span>, <span class='ident'>VALUE_TYPE</span>};
+<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='op'>*</span>;
+<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scvalue</span>::{<span class='ident'>VALUE</span>, <span class='ident'>VALUE_UNIT_TYPE_STRING</span>};
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scvalue</span>::{<span class='ident'>VALUE_RESULT</span>, <span class='ident'>VALUE_STRING_CVT_TYPE</span>, <span class='ident'>VALUE_TYPE</span>};
 
 <span class='comment'>// TODO: map keys/values/items</span>
 
@@ -1598,7 +1598,7 @@ assert!(v.get_item(Value::from(&quot;one&quot;)).is_int());
 	<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>allow</span>(<span class='ident'>unused_imports</span>, <span class='ident'>unused_variables</span>, <span class='ident'>unused_mut</span>)]</span>
 
 	<span class='kw'>use</span> <span class='ident'>super</span>::{<span class='ident'>Value</span>, <span class='ident'>FromValue</span>};
-	<span class='kw'>use</span> ::<span class='ident'>scvalue</span>::<span class='op'>*</span>;
+	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scvalue</span>::<span class='op'>*</span>;
 	<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>;
 	<span class='kw'>use</span> ::{<span class='ident'>_API</span>};
 

@@ -384,13 +384,13 @@
 <span class='doccomment'>//! Sciter host application helpers.</span>
 
 <span class='kw'>use</span> ::{<span class='ident'>_API</span>};
-<span class='kw'>use</span> <span class='ident'>sctypes</span>::<span class='op'>*</span>;
-<span class='kw'>use</span> <span class='ident'>screquest</span>::<span class='ident'>HREQUEST</span>;
-<span class='kw'>use</span> <span class='ident'>schandler</span>::<span class='ident'>NativeHandler</span>;
+<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>sctypes</span>::<span class='op'>*</span>;
+<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>screquest</span>::<span class='ident'>HREQUEST</span>;
+<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>schandler</span>::<span class='ident'>NativeHandler</span>;
 <span class='kw'>use</span> <span class='ident'>value</span>::{<span class='ident'>Value</span>};
 
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>scdef</span>::{<span class='ident'>SCITER_RT_OPTIONS</span>, <span class='ident'>SCRIPT_RUNTIME_FEATURES</span>, <span class='ident'>GFX_LAYER</span>};
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>scdef</span>::{<span class='ident'>LOAD_RESULT</span>, <span class='ident'>SCN_LOAD_DATA</span>, <span class='ident'>SCN_DATA_LOADED</span>, <span class='ident'>SCN_ATTACH_BEHAVIOR</span>, <span class='ident'>OUTPUT_SUBSYTEMS</span>, <span class='ident'>OUTPUT_SEVERITY</span>};
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scdef</span>::{<span class='ident'>SCITER_RT_OPTIONS</span>, <span class='ident'>SCRIPT_RUNTIME_FEATURES</span>, <span class='ident'>GFX_LAYER</span>};
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scdef</span>::{<span class='ident'>LOAD_RESULT</span>, <span class='ident'>SCN_LOAD_DATA</span>, <span class='ident'>SCN_DATA_LOADED</span>, <span class='ident'>SCN_ATTACH_BEHAVIOR</span>, <span class='ident'>OUTPUT_SUBSYTEMS</span>, <span class='ident'>OUTPUT_SEVERITY</span>};
 
 
 <span class='doccomment'>/// A specialized `Result` type for sciter host operations.</span>
@@ -658,9 +658,9 @@ Note: This handler should be registere before any `load_html` call in order to s
 
 <span class='comment'>// Sciter notification handler.</span>
 <span class='comment'>// This comes as free function due to https://github.com/rust-lang/rust/issues/32364</span>
-<span class='kw'>extern</span> <span class='string'>&quot;stdcall&quot;</span> <span class='kw'>fn</span> <span class='ident'>_on_handle_notification</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>HostHandler</span><span class='op'>&gt;</span>(<span class='ident'>pnm</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>scdef</span>::<span class='ident'>SCITER_CALLBACK_NOTIFICATION</span>, <span class='ident'>param</span>: <span class='ident'>LPVOID</span>) <span class='op'>-&gt;</span> <span class='ident'>UINT</span>
+<span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span> <span class='ident'>_on_handle_notification</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>HostHandler</span><span class='op'>&gt;</span>(<span class='ident'>pnm</span>: <span class='op'>*</span><span class='kw-2'>mut</span> ::<span class='ident'>capi</span>::<span class='ident'>scdef</span>::<span class='ident'>SCITER_CALLBACK_NOTIFICATION</span>, <span class='ident'>param</span>: <span class='ident'>LPVOID</span>) <span class='op'>-&gt;</span> <span class='ident'>UINT</span>
 {
-	<span class='kw'>use</span> <span class='ident'>scdef</span>::{<span class='ident'>SCITER_NOTIFICATION</span>, <span class='ident'>SCITER_CALLBACK_NOTIFICATION</span>};
+	<span class='kw'>use</span> <span class='ident'>capi</span>::<span class='ident'>scdef</span>::{<span class='ident'>SCITER_NOTIFICATION</span>, <span class='ident'>SCITER_CALLBACK_NOTIFICATION</span>};
 
 	<span class='comment'>// reconstruct pointer to Handler</span>
 	<span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>boxed</span> <span class='op'>=</span> <span class='ident'>NativeHandler</span>::<span class='ident'>from_mut_ptr3</span>(<span class='ident'>param</span>);
@@ -709,7 +709,7 @@ Note: This handler should be registere before any `load_html` call in order to s
 }
 
 <span class='comment'>// Sciter debug output handler.</span>
-<span class='kw'>extern</span> <span class='string'>&quot;stdcall&quot;</span> <span class='kw'>fn</span> <span class='ident'>_on_debug_notification</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>HostHandler</span><span class='op'>&gt;</span>(<span class='ident'>param</span>: <span class='ident'>LPVOID</span>, <span class='ident'>subsystem</span>: <span class='ident'>OUTPUT_SUBSYTEMS</span>, <span class='ident'>severity</span>: <span class='ident'>OUTPUT_SEVERITY</span>,
+<span class='kw'>extern</span> <span class='string'>&quot;system&quot;</span> <span class='kw'>fn</span> <span class='ident'>_on_debug_notification</span><span class='op'>&lt;</span><span class='ident'>T</span>: <span class='ident'>HostHandler</span><span class='op'>&gt;</span>(<span class='ident'>param</span>: <span class='ident'>LPVOID</span>, <span class='ident'>subsystem</span>: <span class='ident'>OUTPUT_SUBSYTEMS</span>, <span class='ident'>severity</span>: <span class='ident'>OUTPUT_SEVERITY</span>,
 	<span class='ident'>text</span>: <span class='ident'>LPCWSTR</span>, <span class='ident'>_text_length</span>: <span class='ident'>UINT</span>)
 {
 	<span class='comment'>// reconstruct pointer to Handler</span>
