@@ -1,1 +1,1 @@
-initSidebarItems({});
+initSidebarItems({"struct":[["MSG",""],["POINT",""],["RECT",""],["SIZE",""],["_HSARCHIVE",""],["_HWINDOW",""]],"type":[["BOOL",""],["BYTE",""],["CHAR",""],["FLOAT_VALUE",""],["HSARCHIVE",""],["HWINDOW",""],["INT",""],["INT64",""],["LONG",""],["LPARAM",""],["LPCBYTE",""],["LPCRECT",""],["LPCSTR",""],["LPCVOID",""],["LPCWSTR",""],["LPMSG",""],["LPPOINT",""],["LPRECT",""],["LPSIZE",""],["LPSTR",""],["LPUINT",""],["LPVOID",""],["LPWSTR",""],["LRESULT",""],["PBOOL",""],["UINT",""],["UINT64",""],["UINT_PTR",""],["VOID",""],["WCHAR",""],["WPARAM",""]]});

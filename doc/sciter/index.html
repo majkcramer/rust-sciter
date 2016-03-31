@@ -46,12 +46,14 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-0' class='srclink' href='../src/sciter/lib.rs.html#1-116' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-0' class='srclink' href='../src/sciter/lib.rs.html#1-146' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'>
 <h1 id='rust-bindings-library-for-sciter-engine' class='section-header'><a href='#rust-bindings-library-for-sciter-engine'>Rust bindings library for Sciter engine.</a></h1>
 <p>Sciter is an embeddable <a href="http://sciter.com/sciter/crossplatform/">multiplatform</a> HTML/CSS/script engine
 with GPU accelerated rendering designed to render modern desktop application UI.
 It&#39;s a compact, single dll/dylib/so file (4-8 mb), engine without any additional dependencies.</p>
+
+<p>Check the <a href="https://github.com/oskca/sciter#sciter-desktop-ui-examples">screenshot gallery</a> of the desktop UI examples.</p>
 
 <p>Sciter supports all standard elements defined in HTML5 specification <a href="http://sciter.com/developers/for-web-programmers/">with some additions</a>.
 CSS extended to better support Desktop UI development, e.g. flow and flex units, vertical and horizontal alignment, OS theming.</p>
@@ -61,6 +63,32 @@ CSS extended to better support Desktop UI development, e.g. flow and flex units,
 <p><img src="http://sciter.com/images/sciter-tools.png" alt="Sciter tools"></p>
 
 <p>Check <a href="http://sciter.com">http://sciter.com</a> website and its <a href="http://sciter.com/developers/">documentation resources</a> for engine principles, architecture and more.</p>
+
+<h2 id='brief-look' class='section-header'><a href='#brief-look'>Brief look:</a></h2>
+<p>Here is a minimal sciter app:</p>
+
+<pre class='rust rust-example-rendered'>
+<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>sciter</span>;
+
+<span class='kw'>fn</span> <span class='ident'>main</span>() {
+    <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>frame</span> <span class='op'>=</span> <span class='ident'>sciter</span>::<span class='ident'>Window</span>::<span class='ident'>new</span>();
+    <span class='ident'>frame</span>.<span class='ident'>load_file</span>(<span class='string'>&quot;minimal.htm&quot;</span>);
+    <span class='ident'>frame</span>.<span class='ident'>run_app</span>(<span class='boolval'>true</span>);
+}</pre>
+
+<p>It looks similar like this:</p>
+
+<p><img src="http://i.imgur.com/ojcM5JJ.png" alt="Minimal sciter sample"></p>
+
+<p>Check <a href="https://github.com/pravic/rust-sciter/tree/master/examples">rust-sciter/examples</a> folder for more complex usage
+and module-level sections for the guides about:</p>
+
+<ul>
+<li><a href="window/index.html">Window</a> creation</li>
+<li><a href="dom/event/index.html">Behaviors</a> and event handling</li>
+<li><a href="dom/index.html">DOM</a> access methods</li>
+<li>Sciter <a href="value/index.html">Value</a> interface</li>
+</ul>
 </div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
 <table><tr><td><code>pub use dom::<a class='struct' href='../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>;</code></td></tr><tr><td><code>pub use dom::event::<a class='trait' href='../sciter/dom/event/trait.EventHandler.html' title='sciter::dom::event::EventHandler'>EventHandler</a>;</code></td></tr><tr><td><code>pub use host::{<a class='struct' href='../sciter/host/struct.Host.html' title='sciter::host::Host'>Host</a>, <a class='trait' href='../sciter/host/trait.HostHandler.html' title='sciter::host::HostHandler'>HostHandler</a>};</code></td></tr><tr><td><code>pub use value::{<a class='struct' href='../sciter/value/struct.Value.html' title='sciter::value::Value'>Value</a>, <a class='trait' href='../sciter/value/trait.FromValue.html' title='sciter::value::FromValue'>FromValue</a>};</code></td></tr><tr><td><code>pub use window::<a class='struct' href='../sciter/window/struct.Window.html' title='sciter::window::Window'>Window</a>;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
 <table>
@@ -76,6 +104,13 @@ CSS extended to better support Desktop UI development, e.g. flow and flex units,
                                   title='sciter::host'>host</a></td>
                            <td class='docblock short'>
                                 <p>Sciter host application helpers.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='types/index.html'
+                                  title='sciter::types'>types</a></td>
+                           <td class='docblock short'>
+                                <p>Export platform-dependent types used by Sciter.</p>
                            </td>
                        </tr>
                        <tr class=' module-item'>
@@ -140,6 +175,14 @@ CSS extended to better support Desktop UI development, e.g. flow and flex units,
                                   title='sciter::w2s!'>w2s!</a></td>
                            <td class='docblock short'>
                                 <p>UTF-16 to <code>String</code> conversion.</p>
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.ISciterAPI.html'
+                                  title='sciter::ISciterAPI'>ISciterAPI</a></td>
+                           <td class='docblock short'>
+                                <p>Sciter API functions.</p>
                            </td>
                        </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
 <table>

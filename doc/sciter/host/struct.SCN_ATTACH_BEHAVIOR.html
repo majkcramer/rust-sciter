@@ -48,12 +48,12 @@
                    </a>
                </span><a id='src-1188' class='srclink' href='../../src/sciter/capi/scdef.rs.html#260-275' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct SCN_ATTACH_BEHAVIOR {
-    pub code: UINT,
-    pub hwnd: HWINDOW,
+    pub code: <a class='type' href='../../sciter/types/type.UINT.html' title='sciter::types::UINT'>UINT</a>,
+    pub hwnd: <a class='type' href='../../sciter/types/type.HWINDOW.html' title='sciter::types::HWINDOW'>HWINDOW</a>,
     pub element: <a class='type' href='../../sciter/dom/type.HELEMENT.html' title='sciter::dom::HELEMENT'>HELEMENT</a>,
-    pub name: LPCSTR,
-    pub elementProc: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a>ElementEventProc,
-    pub elementTag: LPVOID,
+    pub name: <a class='type' href='../../sciter/types/type.LPCSTR.html' title='sciter::types::LPCSTR'>LPCSTR</a>,
+    pub elementProc: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.pointer.html'>*mut </a><a class='type' href='../../sciter/types/type.ElementEventProc.html' title='sciter::types::ElementEventProc'>ElementEventProc</a>,
+    pub elementTag: <a class='type' href='../../sciter/types/type.LPVOID.html' title='sciter::types::LPVOID'>LPVOID</a>,
 }</pre><div class='docblock'><p>This notification is sent on parsing the document and while processing elements
 having non empty <code>style.behavior</code> attribute value.</p>
 </div><h2 class='fields'>Fields</h2>
@@ -69,7 +69,7 @@ having non empty <code>style.behavior</code> attribute value.</p>
                              <td id='structfield.elementProc'><code>elementProc</code></td><td><div class='docblock'><p>[out] pointer to ElementEventProc function.</p>
 </div></td></tr><tr class='stab '>
                              <td id='structfield.elementTag'><code>elementTag</code></td><td><div class='docblock'><p>[out] tag value, passed as is into pointer ElementEventProc function.</p>
-</div></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../sciter/host/struct.SCN_ATTACH_BEHAVIOR.html' title='sciter::host::SCN_ATTACH_BEHAVIOR'>SCN_ATTACH_BEHAVIOR</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div></td></tr></table><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../../sciter/host/struct.SCN_ATTACH_BEHAVIOR.html' title='sciter::host::SCN_ATTACH_BEHAVIOR'>SCN_ATTACH_BEHAVIOR</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#tymethod.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
 </div></section>
     <section id='search' class="content hidden"></section>
 

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `SCITER_CREATE_WINDOW_FLAGS` enum in crate `sciter`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, SCITER_CREATE_WINDOW_FLAGS">
+
+    <title>sciter::types::SCITER_CREATE_WINDOW_FLAGS - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>sciter</a>::<wbr><a href='index.html'>types</a></p><script>window.sidebarCurrent = {name: 'SCITER_CREATE_WINDOW_FLAGS', ty: 'enum', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content enum">
+<h1 class='fqn'><span class='in-band'>Enum <a href='../index.html'>sciter</a>::<wbr><a href='index.html'>types</a>::<wbr><a class='enum' href=''>SCITER_CREATE_WINDOW_FLAGS</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-1051' class='srclink' href='../../src/sciter/capi/scdef.rs.html#98-121' title='goto source code'>[src]</a></span></h1>
+<pre class='rust enum'>pub enum SCITER_CREATE_WINDOW_FLAGS {
+    SW_CHILD,
+    SW_TITLEBAR,
+    SW_RESIZEABLE,
+    SW_TOOL,
+    SW_CONTROLS,
+    SW_GLASSY,
+    SW_ALPHA,
+    SW_MAIN,
+    SW_POPUP,
+    SW_ENABLE_DEBUG,
+    SW_OWNS_VM,
+}</pre><div class='docblock'><p>Window flags</p>
+</div><h2 class='variants'>Variants</h2>
+<table class='variants_table'><tr><td id='variant.SW_CHILD'><code>SW_CHILD</code></td><td><div class='docblock'><p>child window only, if this flag is set all other flags ignored</p>
+</div></td><td></td></tr><tr><td id='variant.SW_TITLEBAR'><code>SW_TITLEBAR</code></td><td><div class='docblock'><p>toplevel window, has titlebar</p>
+</div></td><td></td></tr><tr><td id='variant.SW_RESIZEABLE'><code>SW_RESIZEABLE</code></td><td><div class='docblock'><p>has resizeable frame</p>
+</div></td><td></td></tr><tr><td id='variant.SW_TOOL'><code>SW_TOOL</code></td><td><div class='docblock'><p>is tool window</p>
+</div></td><td></td></tr><tr><td id='variant.SW_CONTROLS'><code>SW_CONTROLS</code></td><td><div class='docblock'><p>has minimize / maximize buttons</p>
+</div></td><td></td></tr><tr><td id='variant.SW_GLASSY'><code>SW_GLASSY</code></td><td><div class='docblock'><p>glassy window ( DwmExtendFrameIntoClientArea on windows )</p>
+</div></td><td></td></tr><tr><td id='variant.SW_ALPHA'><code>SW_ALPHA</code></td><td><div class='docblock'><p>transparent window ( e.g. WS_EX_LAYERED on Windows )</p>
+</div></td><td></td></tr><tr><td id='variant.SW_MAIN'><code>SW_MAIN</code></td><td><div class='docblock'><p>main window of the app, will terminate the app on close</p>
+</div></td><td></td></tr><tr><td id='variant.SW_POPUP'><code>SW_POPUP</code></td><td><div class='docblock'><p>the window is created as topmost window.</p>
+</div></td><td></td></tr><tr><td id='variant.SW_ENABLE_DEBUG'><code>SW_ENABLE_DEBUG</code></td><td><div class='docblock'><p>make this window inspector ready</p>
+</div></td><td></td></tr><tr><td id='variant.SW_OWNS_VM'><code>SW_OWNS_VM</code></td><td><div class='docblock'><p>it has its own script VM</p>
+</div></td><td></td></tr></table><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></h3><div class='impl-items'><h4 id='method.main_window' class='method'><code>fn <a href='#method.main_window' class='fnname'>main_window</a>(resizeable: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></h4>
+<div class='docblock'><p>Main application window.</p>
+</div><h4 id='method.child_window' class='method'><code>fn <a href='#method.child_window' class='fnname'>child_window</a>() -&gt; <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></h4>
+<div class='docblock'><p>Child window.</p>
+</div><h4 id='method.popup_window' class='method'><code>fn <a href='#method.popup_window' class='fnname'>popup_window</a>(title: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>, minmaxclose: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>, resizeable: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></h4>
+<div class='docblock'><p>Popup window.</p>
+</div><h4 id='method.tool_window' class='method'><code>fn <a href='#method.tool_window' class='fnname'>tool_window</a>(resizeable: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>) -&gt; <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></h4>
+<div class='docblock'><p>Tool window.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html' title='core::ops::BitOr'>BitOr</a> for <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></h3><div class='docblock'><p>Flags can be OR&#39;ed as <code>SW_MAIN|SW_ALPHA</code>.</p>
+</div><div class='impl-items'><h4 id='associatedtype.Output' class='type'><code>type <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html#associatedtype.Output' class='type'>Output</a> = <a class='enum' href='../../sciter/window/enum.SCITER_CREATE_WINDOW_FLAGS.html' title='sciter::window::SCITER_CREATE_WINDOW_FLAGS'>SCITER_CREATE_WINDOW_FLAGS</a></code></h4>
+<h4 id='method.bitor' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html#tymethod.bitor' class='fnname'>bitor</a>(self, rhs: Self::<a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html' title='core::ops::BitOr'>Output</a>) -&gt; Self::<a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html' title='core::ops::BitOr'>Output</a></code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "sciter";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

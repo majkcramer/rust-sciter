@@ -46,15 +46,24 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-1986' class='srclink' href='../../src/sciter/host.rs.html#120-123' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-1993' class='srclink' href='../../src/sciter/host.rs.html#122-125' title='goto source code'>[src]</a></span></h1>
 <pre class='rust struct'>pub struct Host {
     // some fields omitted
 }</pre><div class='docblock'><p>Sciter host runtime support.</p>
-</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../sciter/host/struct.Host.html' title='sciter::host::Host'>Host</a></code></h3><div class='impl-items'><h4 id='method.setup_callback' class='method'><code>fn <a href='#method.setup_callback' class='fnname'>setup_callback</a>&lt;T: <a class='trait' href='../../sciter/host/trait.HostHandler.html' title='sciter::host::HostHandler'>HostHandler</a>&gt;(&amp;self, hwnd: HWINDOW, handler: T)</code></h4>
-<div class='docblock'><p>Set callback for sciter engine events.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../../sciter/host/struct.Host.html' title='sciter::host::Host'>Host</a></code></h3><div class='impl-items'><h4 id='method.attach' class='method'><code>fn <a href='#method.attach' class='fnname'>attach</a>(hwnd: <a class='type' href='../../sciter/types/type.HWINDOW.html' title='sciter::types::HWINDOW'>HWINDOW</a>) -&gt; <a class='struct' href='../../sciter/host/struct.Host.html' title='sciter::host::Host'>Host</a></code></h4>
+<div class='docblock'><p>Attach Sciter host to existing window.</p>
+
+<p>Usually Sciter window created by <code>sciter::Window::create()</code>, but you can attach Sciter to the existing native window.
+In this case you need to mix-in window events processing with <code>SciterProcND</code>.
+Sciter engine will be initialized either on <code>WM_CREATE</code> or <code>WM_INITDIALOG</code> response
+or by calling <code>SciterCreateOnDirectXWindow</code>.</p>
+</div><h4 id='method.setup_callback' class='method'><code>fn <a href='#method.setup_callback' class='fnname'>setup_callback</a>&lt;T: <a class='trait' href='../../sciter/host/trait.HostHandler.html' title='sciter::host::HostHandler'>HostHandler</a>&gt;(&amp;self, hwnd: <a class='type' href='../../sciter/types/type.HWINDOW.html' title='sciter::types::HWINDOW'>HWINDOW</a>, handler: T)</code></h4>
+<div class='docblock'><p>Set callback for Sciter engine events.</p>
+</div><h4 id='method.attach_handler' class='method'><code>fn <a href='#method.attach_handler' class='fnname'>attach_handler</a>&lt;T: <a class='trait' href='../../sciter/dom/event/trait.EventHandler.html' title='sciter::dom::event::EventHandler'>EventHandler</a>&gt;(&amp;self, handler: T)</code></h4>
+<div class='docblock'><p>Attach <code>dom::EventHandler</code> to the Sciter window.</p>
 </div><h4 id='method.enable_debug' class='method'><code>fn <a href='#method.enable_debug' class='fnname'>enable_debug</a>(&amp;self, enable: <a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a>)</code></h4>
-<div class='docblock'><p>Setup debug output function for specific window or globally.</p>
-</div><h4 id='method.get_hwnd' class='method'><code>fn <a href='#method.get_hwnd' class='fnname'>get_hwnd</a>(&amp;self) -&gt; HWINDOW</code></h4>
+<div class='docblock'><p>Set debug mode for specific window or globally.</p>
+</div><h4 id='method.get_hwnd' class='method'><code>fn <a href='#method.get_hwnd' class='fnname'>get_hwnd</a>(&amp;self) -&gt; <a class='type' href='../../sciter/types/type.HWINDOW.html' title='sciter::types::HWINDOW'>HWINDOW</a></code></h4>
 <div class='docblock'><p>Get native window handle.</p>
 </div><h4 id='method.get_root' class='method'><code>fn <a href='#method.get_root' class='fnname'>get_root</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../sciter/dom/struct.Element.html' title='sciter::dom::Element'>Element</a>&gt;</code></h4>
 <div class='docblock'><p>Get window root DOM element.</p>

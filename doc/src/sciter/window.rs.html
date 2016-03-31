@@ -191,6 +191,12 @@
 <span id="148">148</span>
 <span id="149">149</span>
 <span id="150">150</span>
+<span id="151">151</span>
+<span id="152">152</span>
+<span id="153">153</span>
+<span id="154">154</span>
+<span id="155">155</span>
+<span id="156">156</span>
 </pre><pre class='rust '>
 <span class='doccomment'>/*! High level window wrapper.
 
@@ -266,8 +272,14 @@ Also you can register the [host](../host/trait.HostHandler.html) and [DOM](../do
 		<span class='kw'>let</span> <span class='ident'>hwnd</span> <span class='op'>=</span> <span class='ident'>base</span>.<span class='ident'>create</span>(<span class='ident'>rect</span>, <span class='ident'>flags</span> <span class='kw'>as</span> <span class='ident'>UINT</span>, <span class='ident'>parent</span>.<span class='ident'>unwrap_or</span>(<span class='number'>0</span> <span class='kw'>as</span> <span class='ident'>HWINDOW</span>));
 		<span class='macro'>assert</span><span class='macro'>!</span>(<span class='op'>!</span><span class='ident'>hwnd</span>.<span class='ident'>is_null</span>());
 
-		<span class='kw'>let</span> <span class='ident'>wnd</span> <span class='op'>=</span> <span class='ident'>Window</span> { <span class='ident'>base</span>: <span class='ident'>base</span>, <span class='ident'>host</span>: <span class='ident'>Rc</span>::<span class='ident'>new</span>(<span class='ident'>Host</span>::<span class='ident'>from</span>(<span class='ident'>hwnd</span>))};
+		<span class='kw'>let</span> <span class='ident'>wnd</span> <span class='op'>=</span> <span class='ident'>Window</span> { <span class='ident'>base</span>: <span class='ident'>base</span>, <span class='ident'>host</span>: <span class='ident'>Rc</span>::<span class='ident'>new</span>(<span class='ident'>Host</span>::<span class='ident'>attach</span>(<span class='ident'>hwnd</span>))};
 		<span class='kw'>return</span> <span class='ident'>wnd</span>;
+	}
+
+	<span class='doccomment'>/// Attach Sciter to existing native window.</span>
+	<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>attach</span>(<span class='ident'>hwnd</span>: <span class='ident'>HWINDOW</span>) <span class='op'>-&gt;</span> <span class='ident'>Window</span> {
+		<span class='macro'>assert</span><span class='macro'>!</span>( <span class='ident'>hwnd</span>.<span class='ident'>is_null</span>() <span class='op'>==</span> <span class='boolval'>false</span> );
+		<span class='ident'>Window</span> { <span class='ident'>base</span>: <span class='ident'>OsWindow</span>::<span class='ident'>from</span>(<span class='ident'>hwnd</span>), <span class='ident'>host</span>: <span class='ident'>Rc</span>::<span class='ident'>new</span>(<span class='ident'>Host</span>::<span class='ident'>attach</span>(<span class='ident'>hwnd</span>)) }
 	}
 
 	<span class='doccomment'>/// Obtain reference to `Host` which allows you to control sciter engine and windows.</span>
